@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Tutorial: 008 - Select - Conditions</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Tutorial: 008 - Select - Conditions</h1>
+
+    <section>
+
+<header>
+    
+
+    <h2>008 - Select - Conditions</h2>
+</header>
+
+<article>
+    <div class="ndm-tutorial">
+  <p>
+    In the last tutorial we examined a query that retrieved a list of staff
+    members under the age of 22.  One of the main benefits of having a formal
+    <span class="name">Condition</span> specification is that developers can
+    create reusable queries that are dynamically filterable.  Let's refactor
+    the previous example a bit by creating a <span
+    class="name">retrieveStaffQuery</span> method that returns a <span
+    class="name">From</span> instance.
+  </p>
+
+  <pre class="prettyprint source linenums">
+function retrieveStaffQuery(dataContext) {
+  return dataContext
+    .from('staff s')
+    .leftOuterJoin('s.bonuses b')
+    .innerJoin('s.bike_shops bs');
+}
+  </pre>
+
+  <p>
+    After making this small change, the query is more reusable.  The filter and
+    order are no longer hard coded, so developers can filter and order the
+    staff list on the fly.
+  </p>
+
+  <p>
+    In the previous tutorial we mentioned that the <span
+    class="name">Conditions</span> adhere to a formally-defined language.
+    Let's take a look at the language grammar.
+  </p>
+
+  <pre class="prettyprint source linenums">
+&lt;condition&gt;                ::= "{" &lt;comparison&gt; | &lt;null-comparison&gt; | &lt;in-comparison&gt; | &lt;logical-condition&gt; "}"
+&lt;comparison&gt;               ::= &lt;comparison-operator&gt; ":" "{" &lt;column&gt; ":" &lt;value&gt; "}"
+&lt;null-comparison&gt;          ::= &lt;null-comparison-operator&gt; ":" "{" &lt;column&gt; ":" &lt;nullable&gt; "}"
+&lt;in-comparison&gt;            ::= &lt;in-comparison-operator&gt; ":" "{" &lt;column&gt; ":" "[" &lt;value&gt; {"," &lt;value&gt;} "]" "}"
+&lt;logical-condition&gt;        ::= &lt;boolean-operator&gt; ":" "[" &lt;condition&gt; {"," &lt;condition&gt;} "]"
+&lt;comparison-operator&gt;      ::= "$eq" | "$neq" | "$lt" | "$lte" | "$gt" | "$gte" | "$like" | "$notlike"
+&lt;in-comparison-operator&gt;   ::= "$in"
+&lt;null-comparison-operator&gt; ::= "$is" | "$isnt"
+&lt;boolean-operator&gt;         ::= "$and" | "$or"
+&lt;nullable&gt;                 ::= null | &lt;parameter&gt;
+&lt;value&gt;                    ::= &lt;parameter&gt; | &lt;column&gt; | &lt;number&gt; | null
+&lt;column&gt;                   ::= &lt;string&gt;
+&lt;parameter&gt;                ::= :&lt;string&gt;
+  </pre>
+
+  <p>
+    That's a bit hard to follow, so let's move forward by way of example and
+    create a complex <span class="name">Condition</span> object.  Let's say we
+    want to find all staff members that are either:
+  </p>
+
+  <ul>
+    <li>Male and over the age of 25, or</li>
+    <li>female and over the age of 23.</li>
+  </ul>
+
+  <p>
+    This <span class="name">Condition</span> requires two <span
+    class="name">AND</span>s and an <span class="name">OR</span>.  Working from
+    the inside out, create two <span class="name">comparisons</span>:
+  </p>
+
+  <pre class="prettyprint source">{$eq: {'staff.sex': ':maleSex'}}</pre>
+
+  <pre class="prettyprint source">{$gt: {'staff.age': ':maleAge'}}</pre>
+
+  <p>
+    Now, use a <span class="name">logical-condition</span> to <span
+    class="name">AND</span> the two <span class="name">comparisons</span>
+    together.
+  </p>
+
+  <pre class="prettyprint source linenums">
+{
+  // Male and over the age of 25.
+  $and: [
+    {$eq: {'staff.sex': ':maleSex'}},
+    {$gt: {'staff.age': ':maleAge'}}
+  ]
+}
+  </pre>
+
+  <p>
+    Next create a similar <span class="name">logical-condition</span> for
+    females over the age of 23.
+  </p>
+
+  <pre class="prettyprint source linenums">
+{
+  // Female and over the age of 23.
+  $and: [
+    {$eq: {'staff.sex': ':femaleSex'}},
+    {$gt: {'staff.age': ':femaleAge'}}
+  ]
+}
+  </pre>
+
+  <p>
+    And lastly, use one final <span class="name">logical-condition</span>
+    to <span class="name">OR</span> the conditions together.  Take a look at the following example, which illustrates this complex <span class="name">Condition</span>.
+  </p>
+
+  <pre class="prettyprint source linenums">
+'use strict';
+
+const MySQLDriver = require('node-data-mapper-mysql').MySQLDriver;
+const driver      = new MySQLDriver(require('../bikeShopConOpts.json'));
+const util        = require('util');
+
+driver
+  .initialize()
+  .then(runQuery)
+  .then(printResult)
+  .catch(console.error)
+  .finally(() => driver.end());
+
+/**
+ * Get a <a href="From.html">From</a> instance which is a combination of staff, staff bonuses,
+ * and place of employment.
+ */
+function retrieveStaffQuery(dataContext) {
+  return dataContext
+    .from('staff')
+    .leftOuterJoin('staff.bonuses')
+    .innerJoin('staff.bike_shops');
+}
+
+function runQuery(dataContext) {
+  // Condition object to find all staff that are either:
+  // 1) male and over the age of 25, or
+  // 2) female and over the age of 23.
+  const cond = {
+    $or: [
+      {
+        // Male and over the age of 25.
+        $and: [
+          {$eq: {'staff.sex': ':maleSex'}},
+          {$gt: {'staff.age': ':maleAge'}}
+        ]
+      },
+      {
+        // Female and over the age of 23.
+        $and: [
+          {$eq: {'staff.sex': ':femaleSex'}},
+          {$gt: {'staff.age': ':femaleAge'}}
+        ]
+      }
+    ]
+  };
+
+  const params = {
+    maleSex:   'male',
+    maleAge:   25,
+    femaleSex: 'female',
+    femaleAge: 23
+  };
+
+  const query = retrieveStaffQuery(dataContext)
+    .where(cond, params)
+    .select()
+    .orderBy('staff.sex', 'staff.age');
+
+  console.log('Query:');
+  console.log(query.toString(), '\n');
+
+  return query
+    .execute();
+}
+
+function printResult(result) {
+  console.log('Result:');
+  console.log(util.inspect(result, {depth: null}));
+}
+  </pre>
+
+  <p>
+    And here is the output from the previous example (<span class="name">$ node
+    example/retrieve/advancedWhere.js</span>):
+  </p>
+
+  <pre class="prettyprint source linenums">
+Query:
+SELECT  `staff`.`age` AS `staff.age`,
+        `staff`.`bikeShopID` AS `staff.bikeShopID`,
+        `staff`.`firstName` AS `staff.firstName`,
+        `staff`.`hasStoreKeys` AS `staff.hasStoreKeys`,
+        `staff`.`hireDate` AS `staff.hireDate`,
+        `staff`.`lastName` AS `staff.lastName`,
+        `staff`.`sex` AS `staff.sex`,
+        `staff`.`staffID` AS `staff.staffID`,
+        `bonuses`.`amount` AS `bonuses.amount`,
+        `bonuses`.`bonusID` AS `bonuses.bonusID`,
+        `bonuses`.`dateGiven` AS `bonuses.dateGiven`,
+        `bonuses`.`reason` AS `bonuses.reason`,
+        `bonuses`.`staffID` AS `bonuses.staffID`,
+        `bike_shops`.`address` AS `bike_shops.address`,
+        `bike_shops`.`bikeShopID` AS `bike_shops.bikeShopID`,
+        `bike_shops`.`name` AS `bike_shops.name`
+FROM    `staff` AS `staff`
+LEFT OUTER JOIN `bonuses` AS `bonuses` ON `staff`.`staffID` = `bonuses`.`staffID`
+INNER JOIN `bike_shops` AS `bike_shops` ON `staff`.`bikeShopID` = `bike_shops`.`bikeShopID`
+WHERE   ((`staff`.`sex` = :maleSex AND `staff`.`age` > :maleAge) OR (`staff`.`sex` = :femaleSex AND `staff`.`age` > :femaleAge))
+ORDER BY `staff`.`sex` ASC, `staff`.`age` ASC 
+
+Result:
+{ staff: 
+   [ { staffID: 6,
+       age: 29,
+       bikeShopID: 3,
+       firstName: 'Valerie',
+       hasStoreKeys: <Buffer 01>,
+       hireDate: 2007-11-12T00:00:00.000Z,
+       lastName: 'Stocking',
+       sex: 'female',
+       bonuses: 
+        [ { bonusID: 2,
+            amount: 600,
+            dateGiven: 2009-07-07T00:00:00.000Z,
+            reason: 'Most supportive team member.',
+            staffID: 6 } ],
+       bike_shops: 
+        { bikeShopID: 3,
+          address: '3100 La Riviera Wy',
+          name: 'Cycle Works' } },
+     { staffID: 5,
+       age: 42,
+       bikeShopID: 3,
+       firstName: 'Sal',
+       hasStoreKeys: <Buffer 01>,
+       hireDate: 2004-01-30T00:00:00.000Z,
+       lastName: 'Green',
+       sex: 'male',
+       bonuses: [],
+       bike_shops: 
+        { bikeShopID: 3,
+          address: '3100 La Riviera Wy',
+          name: 'Cycle Works' } },
+     { staffID: 2,
+       age: 54,
+       bikeShopID: 1,
+       firstName: 'John',
+       hasStoreKeys: <Buffer 01>,
+       hireDate: 1999-08-14T00:00:00.000Z,
+       lastName: 'Stovall',
+       sex: 'male',
+       bonuses: [],
+       bike_shops: 
+        { bikeShopID: 1,
+          address: '9107 Sunrise Blvd',
+          name: 'Bob\'s Bikes' } },
+     { staffID: 4,
+       age: 67,
+       bikeShopID: 2,
+       firstName: 'Abe',
+       hasStoreKeys: <Buffer 01>,
+       hireDate: 2015-09-19T00:00:00.000Z,
+       lastName: 'Django',
+       sex: 'male',
+       bonuses: [],
+       bike_shops: 
+        { bikeShopID: 2,
+          address: '18271 Highway 50',
+          name: 'Zephyr Cove Cruisers' } } ] }
+  </pre>
+
+  <p>
+    Note that the <span class="name">WHERE</span> clause is parenthesized
+    correctly.
+  </p>
+</div>
+
+
+</article>
+
+</section>
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BooleanConverter.html">BooleanConverter</a></li><li><a href="Column.html">Column</a></li><li><a href="ConditionCompiler.html">ConditionCompiler</a></li><li><a href="ConditionLexer.html">ConditionLexer</a></li><li><a href="ConditionParser.html">ConditionParser</a></li><li><a href="Database.html">Database</a></li><li><a href="DataContext.html">DataContext</a></li><li><a href="DataMapper.html">DataMapper</a></li><li><a href="Delete.html">Delete</a></li><li><a href="DeleteModel.html">DeleteModel</a></li><li><a href="Escaper.html">Escaper</a></li><li><a href="ForeignKey.html">ForeignKey</a></li><li><a href="From.html">From</a></li><li><a href="FromAdapter.html">FromAdapter</a></li><li><a href="Insert.html">Insert</a></li><li><a href="ModelTraverse.html">ModelTraverse</a></li><li><a href="MutateModel.html">MutateModel</a></li><li><a href="ParameterList.html">ParameterList</a></li><li><a href="Query.html">Query</a></li><li><a href="QueryExecuter.html">QueryExecuter</a></li><li><a href="RelationshipStore.html">RelationshipStore</a></li><li><a href="Schema.html">Schema</a></li><li><a href="Select.html">Select</a></li><li><a href="Table.html">Table</a></li><li><a href="TableMetaList.html">TableMetaList</a></li><li><a href="Update.html">Update</a></li><li><a href="UpdateModel.html">UpdateModel</a></li><li><a href="UTCConverter.html">UTCConverter</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-000 - Example Database Setup.html">000 - Example Database Setup</a></li><li><a href="tutorial-001 - Installing and Connecting.html">001 - Installing and Connecting</a></li><li><a href="tutorial-002 - Select - Select all from a Single Table.html">002 - Select - Select all from a Single Table</a></li><li><a href="tutorial-003 - Select - Limiting Columns.html">003 - Select - Limiting Columns</a></li><li><a href="tutorial-004 - Select - Ad-Hoc Mapping.html">004 - Select - Ad-Hoc Mapping</a></li><li><a href="tutorial-005 - Select - Ordering.html">005 - Select - Ordering</a></li><li><a href="tutorial-006 - Select - Ad-Hoc Converters.html">006 - Select - Ad-Hoc Converters</a></li><li><a href="tutorial-007 - Select - Conditions.html">007 - Select - Conditions</a></li><li><a href="tutorial-008 - Select - Conditions.html">008 - Select - Conditions</a></li><li><a href="tutorial-009 - Select - Joins.html">009 - Select - Joins</a></li><li><a href="tutorial-010 - Insert - Create a Single Model.html">010 - Insert - Create a Single Model</a></li><li><a href="tutorial-011 - Insert - Create Multiple Models.html">011 - Insert - Create Multiple Models</a></li><li><a href="tutorial-012 - Delete - Delete a Single Model.html">012 - Delete - Delete a Single Model</a></li><li><a href="tutorial-013 - Delete - Delete Multiple Models.html">013 - Delete - Delete Multiple Models</a></li><li><a href="tutorial-014 - Delete - Delete Using a From Instance.html">014 - Delete - Delete Using a From Instance</a></li><li><a href="tutorial-015 - Update - Update a Single Model.html">015 - Update - Update a Single Model</a></li><li><a href="tutorial-016 - Update - Update Multiple Models.html">016 - Update - Update Multiple Models</a></li><li><a href="tutorial-017 - Update - Updating Using a From Instance.html">017 - Update - Updating Using a From Instance</a></li><li><a href="tutorial-018 - Schema - Schema Generation Overview.html">018 - Schema - Schema Generation Overview</a></li><li><a href="tutorial-019 - Schema - Customizing Names .html">019 - Schema - Customizing Names (Mapping)</a></li><li><a href="tutorial-020 - Schema - Converters.html">020 - Schema - Converters</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Fri Feb 03 2017 20:32:08 GMT-0800 (PST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

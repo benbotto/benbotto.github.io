@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: query/MutateModel.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: query/MutateModel.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+require('insulin').factory('ndm_MutateModel',
+  ['deferred', 'ndm_assert', 'ndm_From', 'ndm_Query', 'ndm_Column',
+  'ndm_ModelTraverse'],
+  ndm_MutateModelProducer);
+
+function ndm_MutateModelProducer(deferred, assert, From, Query, Column, ModelTraverse) {
+  /**
+   * Base class for classes that mutate models by primary key (DeleteModel and
+   * UpdateModel).
+   * @extends Query
+   */
+  class MutateModel extends Query {
+    /**
+     * Initialize the instance.
+     * @param {Database} database - The database to mutate from.
+     * @param {Escaper} escaper - An instance of an Escaper matching the
+     * database type (e.g. MySQLEscaper).
+     * @param {QueryExecuter} queryExecuter - A QueryExecuter instance that
+     * implements the mutate (update or delete) method.
+     * @param {Object} model - A model object to mutate.  Each key in the
+     * object should map to a table.  The value associated with the key should
+     * be an object or an array of objects wherein each key maps to a column.
+     * The primary key is required for each model.
+     */
+    constructor(database, escaper, queryExecuter, model) {
+      super(database, escaper, queryExecuter);
+
+      const traverse = new ModelTraverse();
+
+      /**
+       * An array of Query instances, one per model.
+       * @type {Query[]}
+       * @name MutateModel#queries
+       * @public
+       */
+      this.queries = [];
+
+      // Traverse the model, creating a Query instance for each.
+      traverse.modelOnly(model,
+        meta => this.queries.push(this.createQuery(meta)),
+        this.database);
+    }
+
+    /**
+     * Create a Query instance.  Subclasses should specialize this method, as
+     * this only creates the From portion of the query.
+     * @param {ModelTraverse~ModelMeta} meta - A meta object as created by the
+     * modelTraverse class.
+     * @return {Query} A Query instance representing the mutation query.
+     */
+    createQuery(meta) {
+      const table  = this.database.getTableByMapping(meta.tableMapping);
+      const from   = new From(this.database, this.escaper, this.queryExecuter, table.name);
+      const where  = {$and: []};
+      const params = {};
+
+      table.primaryKey.forEach(function(pk) {
+        // Each part of the PK is combined together in an AND'd WHERE condition.
+        const fqColName = Column.createFQColName(table.name, pk.name);
+        const paramName = from.paramList.createParameterName(fqColName);
+        const pkCond    = {$eq: {[fqColName]: `:${paramName}`}};
+
+        where.$and.push(pkCond);
+
+        // The primary key is required on each model.
+        assert(meta.model[pk.mapTo],
+          `Primary key not provided on model "${meta.tableMapping}."`);
+
+        params[paramName] = meta.model[pk.mapTo];
+      });
+
+      return from.where(where, params);
+    }
+
+    /**
+     * Create the SQL for each query.
+     * @return {string} A SQL string representing the mutation queries.
+     */
+    toString() {
+      return this.queries
+        .map(qry => qry.toString())
+        .join(';\n\n');
+    }
+
+    /**
+     * Execute the query.
+     * @return {Promise&lt;object>} A promise that will be resolved with an
+     * object.  The object will have an affectedRows property.  If an error
+     * occurs when executing a query, the promise shall be rejected with the
+     * error unmodified.
+     */
+    execute() {
+      const defer = deferred();
+      const res   = {affectedRows: 0};
+      const self  = this;
+
+      // Execute one query at a time.  (Self-executing function.)
+      (function processQuery() {
+        // No more queries in the queue.  Resolve the promise.
+        if (self.queries.length === 0) {
+          defer.resolve(res);
+          return;
+        }
+
+        // Get the next query in the queue and execute it.
+        self.queries
+          .shift()
+          .execute()
+          .then(function(result) {
+            // Keep track of the total affected rows.
+            res.affectedRows += result.affectedRows;
+
+            // Recursively process the next query.
+            processQuery();
+          })
+          .catch(function(err) {
+            defer.reject(err);
+          });
+      })();
+
+      return defer.promise;
+    }
+  }
+
+  return MutateModel;
+}
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BooleanConverter.html">BooleanConverter</a></li><li><a href="Column.html">Column</a></li><li><a href="ConditionCompiler.html">ConditionCompiler</a></li><li><a href="ConditionLexer.html">ConditionLexer</a></li><li><a href="ConditionParser.html">ConditionParser</a></li><li><a href="Database.html">Database</a></li><li><a href="DataContext.html">DataContext</a></li><li><a href="DataMapper.html">DataMapper</a></li><li><a href="Delete.html">Delete</a></li><li><a href="DeleteModel.html">DeleteModel</a></li><li><a href="Escaper.html">Escaper</a></li><li><a href="ForeignKey.html">ForeignKey</a></li><li><a href="From.html">From</a></li><li><a href="FromAdapter.html">FromAdapter</a></li><li><a href="Insert.html">Insert</a></li><li><a href="ModelTraverse.html">ModelTraverse</a></li><li><a href="MutateModel.html">MutateModel</a></li><li><a href="ParameterList.html">ParameterList</a></li><li><a href="Query.html">Query</a></li><li><a href="QueryExecuter.html">QueryExecuter</a></li><li><a href="RelationshipStore.html">RelationshipStore</a></li><li><a href="Schema.html">Schema</a></li><li><a href="Select.html">Select</a></li><li><a href="Table.html">Table</a></li><li><a href="TableMetaList.html">TableMetaList</a></li><li><a href="Update.html">Update</a></li><li><a href="UpdateModel.html">UpdateModel</a></li><li><a href="UTCConverter.html">UTCConverter</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-000 - Example Database Setup.html">000 - Example Database Setup</a></li><li><a href="tutorial-001 - Installing and Connecting.html">001 - Installing and Connecting</a></li><li><a href="tutorial-002 - Select - Select all from a Single Table.html">002 - Select - Select all from a Single Table</a></li><li><a href="tutorial-003 - Select - Limiting Columns.html">003 - Select - Limiting Columns</a></li><li><a href="tutorial-004 - Select - Ad-Hoc Mapping.html">004 - Select - Ad-Hoc Mapping</a></li><li><a href="tutorial-005 - Select - Ordering.html">005 - Select - Ordering</a></li><li><a href="tutorial-006 - Select - Ad-Hoc Converters.html">006 - Select - Ad-Hoc Converters</a></li><li><a href="tutorial-007 - Select - Conditions.html">007 - Select - Conditions</a></li><li><a href="tutorial-008 - Select - Conditions.html">008 - Select - Conditions</a></li><li><a href="tutorial-009 - Select - Joins.html">009 - Select - Joins</a></li><li><a href="tutorial-010 - Insert - Create a Single Model.html">010 - Insert - Create a Single Model</a></li><li><a href="tutorial-011 - Insert - Create Multiple Models.html">011 - Insert - Create Multiple Models</a></li><li><a href="tutorial-012 - Delete - Delete a Single Model.html">012 - Delete - Delete a Single Model</a></li><li><a href="tutorial-013 - Delete - Delete Multiple Models.html">013 - Delete - Delete Multiple Models</a></li><li><a href="tutorial-014 - Delete - Delete Using a From Instance.html">014 - Delete - Delete Using a From Instance</a></li><li><a href="tutorial-015 - Update - Update a Single Model.html">015 - Update - Update a Single Model</a></li><li><a href="tutorial-016 - Update - Update Multiple Models.html">016 - Update - Update Multiple Models</a></li><li><a href="tutorial-017 - Update - Updating Using a From Instance.html">017 - Update - Updating Using a From Instance</a></li><li><a href="tutorial-018 - Schema - Schema Generation Overview.html">018 - Schema - Schema Generation Overview</a></li><li><a href="tutorial-019 - Schema - Customizing Names .html">019 - Schema - Customizing Names (Mapping)</a></li><li><a href="tutorial-020 - Schema - Converters.html">020 - Schema - Converters</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Fri Feb 03 2017 20:32:07 GMT-0800 (PST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

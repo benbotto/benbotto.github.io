@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Tutorial: 000 - Example Database Setup</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Tutorial: 000 - Example Database Setup</h1>
+
+    <section>
+
+<header>
+    
+
+    <h2>000 - Example Database Setup</h2>
+</header>
+
+<article>
+    <div class="ndm-tutorial">
+  <p>
+    The examples provided in these tutorials use a fictitious <i
+    class="name">bike_shop</i> database.  If you would like to run the example
+    code, which is contained in the <i class="name">example</i> directory,
+    then you'll need to create the <i class="name">bike_shop</i> database in a
+    local MySQL database.  The <i class="name">example/bike_shop.sql</i>
+    script can be used to create this database by logging in to your MySQL
+    server and running:
+  </p>
+
+  <pre class="prettyprint source">source example/bike_shop.sql</pre>
+
+  <p>
+    The database contains a series of bike shops.  Each bike shop has staff,
+    and staff can get bonuses.  Each bike shop sells bikes.  When you source <i
+    class="name">bike_shop.sql</i>, two queries are run to show what data have
+    been added.  The first shows all the bike shops, the staff for each, and
+    each staff member's bonuses.  (Most staff members have not received any
+    bonuses.)  The second query shows all the bike shops with all the bikes
+    sold by each shop.  Note that some of the bikes are sold by multiple shops.
+  </p>
+
+  <p>
+    The <i class="name">bike_shop.sql</i> script creates a user "example" with
+    a password of "secret."  If you change the credentials then you will need
+    to update the <i class="name">bikeShopConOpts.json</i> file accordingly.
+  </p>
+</div>
+
+</article>
+
+</section>
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BooleanConverter.html">BooleanConverter</a></li><li><a href="Column.html">Column</a></li><li><a href="ConditionCompiler.html">ConditionCompiler</a></li><li><a href="ConditionLexer.html">ConditionLexer</a></li><li><a href="ConditionParser.html">ConditionParser</a></li><li><a href="Database.html">Database</a></li><li><a href="DataContext.html">DataContext</a></li><li><a href="DataMapper.html">DataMapper</a></li><li><a href="Delete.html">Delete</a></li><li><a href="DeleteModel.html">DeleteModel</a></li><li><a href="Escaper.html">Escaper</a></li><li><a href="ForeignKey.html">ForeignKey</a></li><li><a href="From.html">From</a></li><li><a href="FromAdapter.html">FromAdapter</a></li><li><a href="Insert.html">Insert</a></li><li><a href="ModelTraverse.html">ModelTraverse</a></li><li><a href="MutateModel.html">MutateModel</a></li><li><a href="ParameterList.html">ParameterList</a></li><li><a href="Query.html">Query</a></li><li><a href="QueryExecuter.html">QueryExecuter</a></li><li><a href="RelationshipStore.html">RelationshipStore</a></li><li><a href="Schema.html">Schema</a></li><li><a href="Select.html">Select</a></li><li><a href="Table.html">Table</a></li><li><a href="TableMetaList.html">TableMetaList</a></li><li><a href="Update.html">Update</a></li><li><a href="UpdateModel.html">UpdateModel</a></li><li><a href="UTCConverter.html">UTCConverter</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-000 - Example Database Setup.html">000 - Example Database Setup</a></li><li><a href="tutorial-001 - Installing and Connecting.html">001 - Installing and Connecting</a></li><li><a href="tutorial-002 - Select - Select all from a Single Table.html">002 - Select - Select all from a Single Table</a></li><li><a href="tutorial-003 - Select - Limiting Columns.html">003 - Select - Limiting Columns</a></li><li><a href="tutorial-004 - Select - Ad-Hoc Mapping.html">004 - Select - Ad-Hoc Mapping</a></li><li><a href="tutorial-005 - Select - Ordering.html">005 - Select - Ordering</a></li><li><a href="tutorial-006 - Select - Ad-Hoc Converters.html">006 - Select - Ad-Hoc Converters</a></li><li><a href="tutorial-007 - Select - Conditions.html">007 - Select - Conditions</a></li><li><a href="tutorial-008 - Select - Conditions.html">008 - Select - Conditions</a></li><li><a href="tutorial-009 - Select - Joins.html">009 - Select - Joins</a></li><li><a href="tutorial-010 - Insert - Create a Single Model.html">010 - Insert - Create a Single Model</a></li><li><a href="tutorial-011 - Insert - Create Multiple Models.html">011 - Insert - Create Multiple Models</a></li><li><a href="tutorial-012 - Delete - Delete a Single Model.html">012 - Delete - Delete a Single Model</a></li><li><a href="tutorial-013 - Delete - Delete Multiple Models.html">013 - Delete - Delete Multiple Models</a></li><li><a href="tutorial-014 - Delete - Delete Using a From Instance.html">014 - Delete - Delete Using a From Instance</a></li><li><a href="tutorial-015 - Update - Update a Single Model.html">015 - Update - Update a Single Model</a></li><li><a href="tutorial-016 - Update - Update Multiple Models.html">016 - Update - Update Multiple Models</a></li><li><a href="tutorial-017 - Update - Updating Using a From Instance.html">017 - Update - Updating Using a From Instance</a></li><li><a href="tutorial-018 - Schema - Schema Generation Overview.html">018 - Schema - Schema Generation Overview</a></li><li><a href="tutorial-019 - Schema - Customizing Names .html">019 - Schema - Customizing Names (Mapping)</a></li><li><a href="tutorial-020 - Schema - Converters.html">020 - Schema - Converters</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Fri Feb 03 2017 20:32:08 GMT-0800 (PST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

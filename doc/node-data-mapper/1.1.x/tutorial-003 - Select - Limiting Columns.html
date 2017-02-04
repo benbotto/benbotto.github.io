@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Tutorial: 003 - Select - Limiting Columns</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Tutorial: 003 - Select - Limiting Columns</h1>
+
+    <section>
+
+<header>
+    
+
+    <h2>003 - Select - Limiting Columns</h2>
+</header>
+
+<article>
+    <div class="ndm-tutorial">
+  <p>
+    The selected columns can be limited by using the <a href="FromAdapter.html#select">FromAdapter#select</a>
+    method.  It's variadic, and in its simplest form it can be passed an array
+    of fully-qualified column names.  A fully-qualified column name takes the
+    form <i class="name">&lt;table-alias&gt;.&lt;column-name&gt;</i>.  For
+    example, the <i class="name">bike_shops</i> table is aliased <i
+    class="name">bs</i> in the proceeding example, so limiting the above query
+    to <i class="name">bikeShopID</i> and <i class="name">name</i> is done in
+    the following manner:
+  </p>
+
+  <pre class="prettyprint source linenums">
+'use strict';
+
+const MySQLDriver = require('node-data-mapper-mysql').MySQLDriver;
+const driver      = new MySQLDriver(require('../bikeShopConOpts.json'));
+
+driver
+  .initialize()
+  .then(runQuery)
+  .then(printResult)
+  .catch(console.error)
+  .finally(() => driver.end());
+
+function runQuery(dataContext) {
+  const query = dataContext
+    // The table is aliased "bs" for convenience.
+    .from('bike_shops bs')
+    // Select only the ID and name of the shop.
+    .select('bs.bikeShopID', 'bs.name');
+
+  // This is the query that will be executed.
+  console.log('Query:');
+  console.log(query.toString(), '\n');
+
+  // Executing a query returns a promise.
+  return query
+    .execute();
+}
+
+function printResult(result) {
+  console.log('Result:');
+  console.log(result);
+}
+  </pre>
+
+  <p>
+    It's worth mentioning that when limiting columns, the primary key is
+    required to be one of the selected columns.  If columns are selected from a
+    table and the primary key is not one of the columns, then an exception will
+    be raised.
+  </p>
+
+  <p>
+    This example prints the following output (<span class="name">$ node
+    example/retrieve/limitColumns.js</span>):
+  </p>
+
+  <pre class="prettyprint source">
+Query:
+SELECT  `bs`.`bikeShopID` AS `bs.bikeShopID`,
+        `bs`.`name` AS `bs.name`
+FROM    `bike_shops` AS `bs` 
+
+Result:
+{ bike_shops: 
+   [ { bikeShopID: 1, name: 'Bob\'s Bikes' },
+     { bikeShopID: 2, name: 'Zephyr Cove Cruisers' },
+     { bikeShopID: 3, name: 'Cycle Works' } ] }
+  </pre>
+</div>
+
+</article>
+
+</section>
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BooleanConverter.html">BooleanConverter</a></li><li><a href="Column.html">Column</a></li><li><a href="ConditionCompiler.html">ConditionCompiler</a></li><li><a href="ConditionLexer.html">ConditionLexer</a></li><li><a href="ConditionParser.html">ConditionParser</a></li><li><a href="Database.html">Database</a></li><li><a href="DataContext.html">DataContext</a></li><li><a href="DataMapper.html">DataMapper</a></li><li><a href="Delete.html">Delete</a></li><li><a href="DeleteModel.html">DeleteModel</a></li><li><a href="Escaper.html">Escaper</a></li><li><a href="ForeignKey.html">ForeignKey</a></li><li><a href="From.html">From</a></li><li><a href="FromAdapter.html">FromAdapter</a></li><li><a href="Insert.html">Insert</a></li><li><a href="ModelTraverse.html">ModelTraverse</a></li><li><a href="MutateModel.html">MutateModel</a></li><li><a href="ParameterList.html">ParameterList</a></li><li><a href="Query.html">Query</a></li><li><a href="QueryExecuter.html">QueryExecuter</a></li><li><a href="RelationshipStore.html">RelationshipStore</a></li><li><a href="Schema.html">Schema</a></li><li><a href="Select.html">Select</a></li><li><a href="Table.html">Table</a></li><li><a href="TableMetaList.html">TableMetaList</a></li><li><a href="Update.html">Update</a></li><li><a href="UpdateModel.html">UpdateModel</a></li><li><a href="UTCConverter.html">UTCConverter</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-000 - Example Database Setup.html">000 - Example Database Setup</a></li><li><a href="tutorial-001 - Installing and Connecting.html">001 - Installing and Connecting</a></li><li><a href="tutorial-002 - Select - Select all from a Single Table.html">002 - Select - Select all from a Single Table</a></li><li><a href="tutorial-003 - Select - Limiting Columns.html">003 - Select - Limiting Columns</a></li><li><a href="tutorial-004 - Select - Ad-Hoc Mapping.html">004 - Select - Ad-Hoc Mapping</a></li><li><a href="tutorial-005 - Select - Ordering.html">005 - Select - Ordering</a></li><li><a href="tutorial-006 - Select - Ad-Hoc Converters.html">006 - Select - Ad-Hoc Converters</a></li><li><a href="tutorial-007 - Select - Conditions.html">007 - Select - Conditions</a></li><li><a href="tutorial-008 - Select - Conditions.html">008 - Select - Conditions</a></li><li><a href="tutorial-009 - Select - Joins.html">009 - Select - Joins</a></li><li><a href="tutorial-010 - Insert - Create a Single Model.html">010 - Insert - Create a Single Model</a></li><li><a href="tutorial-011 - Insert - Create Multiple Models.html">011 - Insert - Create Multiple Models</a></li><li><a href="tutorial-012 - Delete - Delete a Single Model.html">012 - Delete - Delete a Single Model</a></li><li><a href="tutorial-013 - Delete - Delete Multiple Models.html">013 - Delete - Delete Multiple Models</a></li><li><a href="tutorial-014 - Delete - Delete Using a From Instance.html">014 - Delete - Delete Using a From Instance</a></li><li><a href="tutorial-015 - Update - Update a Single Model.html">015 - Update - Update a Single Model</a></li><li><a href="tutorial-016 - Update - Update Multiple Models.html">016 - Update - Update Multiple Models</a></li><li><a href="tutorial-017 - Update - Updating Using a From Instance.html">017 - Update - Updating Using a From Instance</a></li><li><a href="tutorial-018 - Schema - Schema Generation Overview.html">018 - Schema - Schema Generation Overview</a></li><li><a href="tutorial-019 - Schema - Customizing Names .html">019 - Schema - Customizing Names (Mapping)</a></li><li><a href="tutorial-020 - Schema - Converters.html">020 - Schema - Converters</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Fri Feb 03 2017 20:32:08 GMT-0800 (PST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

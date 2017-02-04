@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Tutorial: 002 - Select - Select all from a Single Table</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Tutorial: 002 - Select - Select all from a Single Table</h1>
+
+    <section>
+
+<header>
+    
+
+    <h2>002 - Select - Select all from a Single Table</h2>
+</header>
+
+<article>
+    <div class="ndm-tutorial">
+  <p>
+    The simplest query one can perform is selecting all data from a single
+    table.
+  </p>
+
+  <pre class="prettyprint source linenums">
+'use strict';
+
+const MySQLDriver = require('node-data-mapper-mysql').MySQLDriver;
+const driver      = new MySQLDriver(require('../bikeShopConOpts.json'));
+
+// 1) Initialize node-data-mapper.
+// 2) Retrieve all the records from the bike_shops table.
+// 3) Print the results on the console.
+// 4) Close the DB connection.
+driver
+  .initialize()
+  .then(runQuery)
+  .then(printResult)
+  .catch(console.error)
+  .finally(() => driver.end());
+
+function runQuery(dataContext) {
+  // Select all columns from the bike_shops table.
+  const query = dataContext
+    .from('bike_shops')
+    .select();
+
+  // This is the query that will be executed.
+  console.log('Query:');
+  console.log(query.toString(), '\n');
+
+  // Executing a query returns a promise.
+  return query
+    .execute();
+}
+
+function printResult(result) {
+  console.log('Result:');
+  console.log(result);
+}
+  </pre>
+
+  <p>
+    Running this code (<span class="name">$ node example/retrieve/allFromSingleTable.js</span>)
+    yields the following output.
+  </p>
+
+  <pre class="prettyprint source">
+Query:
+SELECT  `bike_shops`.`address` AS `bike_shops.address`,
+        `bike_shops`.`bikeShopID` AS `bike_shops.bikeShopID`,
+        `bike_shops`.`name` AS `bike_shops.name`
+FROM    `bike_shops` AS `bike_shops` 
+
+Result:
+{ bike_shops: 
+   [ { bikeShopID: 1,
+       address: '9107 Sunrise Blvd',
+       name: 'Bob\'s Bikes' },
+     { bikeShopID: 2,
+       address: '18271 Highway 50',
+       name: 'Zephyr Cove Cruisers' },
+     { bikeShopID: 3,
+       address: '3100 La Riviera Wy',
+       name: 'Cycle Works' } ] }
+
+  </pre>
+
+  <p>
+    In the above example, <a href="DataContext.html#from">DataContext#from</a> is called, which returns a
+    <a href="FromAdapter.html">FromAdapter</a> instance.  The notion of a <a href="From.html">From</a> is central to
+    node-data-mapper, and a <a href="FromAdapter.html">FromAdapter</a> instance can be used for
+    selecting, updating, and deleting.  This should be fairly intuitive: When
+    using raw SQL a user can <span class="name">SELECT...FROM</span>, <span
+    class="name">UPDATE...FROM</span>, and <span
+    class="name">DELETE...FROM</span>.  One of the goals of node-data-mapper is
+    to provide an interface that closely resembles SQL, and since <span
+    class="name">FROM</span> so often occurs in queries, <a href="DataContext.html#from">DataContext#from</a> is often the starting point when querying with
+    node-data-mapper.
+  </p>
+</div>
+
+</article>
+
+</section>
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BooleanConverter.html">BooleanConverter</a></li><li><a href="Column.html">Column</a></li><li><a href="ConditionCompiler.html">ConditionCompiler</a></li><li><a href="ConditionLexer.html">ConditionLexer</a></li><li><a href="ConditionParser.html">ConditionParser</a></li><li><a href="Database.html">Database</a></li><li><a href="DataContext.html">DataContext</a></li><li><a href="DataMapper.html">DataMapper</a></li><li><a href="Delete.html">Delete</a></li><li><a href="DeleteModel.html">DeleteModel</a></li><li><a href="Escaper.html">Escaper</a></li><li><a href="ForeignKey.html">ForeignKey</a></li><li><a href="From.html">From</a></li><li><a href="FromAdapter.html">FromAdapter</a></li><li><a href="Insert.html">Insert</a></li><li><a href="ModelTraverse.html">ModelTraverse</a></li><li><a href="MutateModel.html">MutateModel</a></li><li><a href="ParameterList.html">ParameterList</a></li><li><a href="Query.html">Query</a></li><li><a href="QueryExecuter.html">QueryExecuter</a></li><li><a href="RelationshipStore.html">RelationshipStore</a></li><li><a href="Schema.html">Schema</a></li><li><a href="Select.html">Select</a></li><li><a href="Table.html">Table</a></li><li><a href="TableMetaList.html">TableMetaList</a></li><li><a href="Update.html">Update</a></li><li><a href="UpdateModel.html">UpdateModel</a></li><li><a href="UTCConverter.html">UTCConverter</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-000 - Example Database Setup.html">000 - Example Database Setup</a></li><li><a href="tutorial-001 - Installing and Connecting.html">001 - Installing and Connecting</a></li><li><a href="tutorial-002 - Select - Select all from a Single Table.html">002 - Select - Select all from a Single Table</a></li><li><a href="tutorial-003 - Select - Limiting Columns.html">003 - Select - Limiting Columns</a></li><li><a href="tutorial-004 - Select - Ad-Hoc Mapping.html">004 - Select - Ad-Hoc Mapping</a></li><li><a href="tutorial-005 - Select - Ordering.html">005 - Select - Ordering</a></li><li><a href="tutorial-006 - Select - Ad-Hoc Converters.html">006 - Select - Ad-Hoc Converters</a></li><li><a href="tutorial-007 - Select - Conditions.html">007 - Select - Conditions</a></li><li><a href="tutorial-008 - Select - Conditions.html">008 - Select - Conditions</a></li><li><a href="tutorial-009 - Select - Joins.html">009 - Select - Joins</a></li><li><a href="tutorial-010 - Insert - Create a Single Model.html">010 - Insert - Create a Single Model</a></li><li><a href="tutorial-011 - Insert - Create Multiple Models.html">011 - Insert - Create Multiple Models</a></li><li><a href="tutorial-012 - Delete - Delete a Single Model.html">012 - Delete - Delete a Single Model</a></li><li><a href="tutorial-013 - Delete - Delete Multiple Models.html">013 - Delete - Delete Multiple Models</a></li><li><a href="tutorial-014 - Delete - Delete Using a From Instance.html">014 - Delete - Delete Using a From Instance</a></li><li><a href="tutorial-015 - Update - Update a Single Model.html">015 - Update - Update a Single Model</a></li><li><a href="tutorial-016 - Update - Update Multiple Models.html">016 - Update - Update Multiple Models</a></li><li><a href="tutorial-017 - Update - Updating Using a From Instance.html">017 - Update - Updating Using a From Instance</a></li><li><a href="tutorial-018 - Schema - Schema Generation Overview.html">018 - Schema - Schema Generation Overview</a></li><li><a href="tutorial-019 - Schema - Customizing Names .html">019 - Schema - Customizing Names (Mapping)</a></li><li><a href="tutorial-020 - Schema - Converters.html">020 - Schema - Converters</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Fri Feb 03 2017 20:32:08 GMT-0800 (PST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
