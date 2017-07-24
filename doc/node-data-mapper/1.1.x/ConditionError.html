@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: query/FromAdapter.js</title>
+    <title>JSDoc: Class: ConditionError</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,66 +17,182 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: query/FromAdapter.js</h1>
+    <h1 class="page-title">Class: ConditionError</h1>
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>'use strict';
+        <h2>ConditionError</h2>
+        
+            <div class="class-description">Custom error instance for Condition (lex/parse/compile) errors.</div>
+        
+    
+</header>
 
-require('insulin').factory('ndm_FromAdapter',
-  ['ndm_From'], ndm_FromAdapterProducer);
+<article>
+    <div class="container-overview">
+    
+        
 
-function ndm_FromAdapterProducer(From) {
-  /**
-   * This is an adapter for the From class that provides the user with a
-   * convenient interface for selecting, deleting, and updating, all of which
-   * are queries that operate on a From instance.
-   * @extends From
-   */
-  class FromAdapter extends From {
-    /**
-     * Select from the table.
-     * @see Select#select
-     * @param {...(object|string)} [cols] - An optional set of columns to select.
-     * @return {Select} A Select instance that can be executed.
-     */
-    select(/*...cols*/) {
-      throw new Error('select not implemented.');
-    }
+    
+    <h2>Constructor</h2>
+    
 
-    /**
-     * Delete from the table.
-     * @param {string} [tableAlias] - The unique alias of the table from which
-     * records will be deleted.  Optional, defaults to the alias of the from
-     * table.
-     * @return {Delete} A Delete instance that can be executed.
-     */
-    delete(/*tableAlias*/) {
-      throw new Error('delete not implemented.');
-    }
+    <h4 class="name" id="ConditionError"><span class="type-signature"></span>new ConditionError<span class="signature">(message)</span><span class="type-signature"></span></h4>
 
-    /**
-     * Update a table.
-     * @param {Object} model - The model describing what to update.
-     * @see Update
-     * @return {Update} An Update instance that can be executed.
-     */
-    update(/*model*/) {
-      throw new Error('update not implemented.');
-    }
-  }
+    
 
-  return FromAdapter;
-}
 
-</code></pre>
-        </article>
-    </section>
+
+<div class="description">
+    Create the Error instance with a user-supplied message.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The Description of the error.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="error_ConditionError.js.html">error/ConditionError.js</a>, <a href="error_ConditionError.js.html#line9">line 9</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

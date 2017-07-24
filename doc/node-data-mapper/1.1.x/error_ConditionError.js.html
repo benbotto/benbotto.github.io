@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: query/FromAdapter.js</title>
+    <title>JSDoc: Source: error/ConditionError.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: query/FromAdapter.js</h1>
+    <h1 class="page-title">Source: error/ConditionError.js</h1>
 
     
 
@@ -28,50 +28,24 @@
         <article>
             <pre class="prettyprint source linenums"><code>'use strict';
 
-require('insulin').factory('ndm_FromAdapter',
-  ['ndm_From'], ndm_FromAdapterProducer);
+require('insulin').factory('ndm_ConditionError', ndm_ConditionErrorProducer);
 
-function ndm_FromAdapterProducer(From) {
-  /**
-   * This is an adapter for the From class that provides the user with a
-   * convenient interface for selecting, deleting, and updating, all of which
-   * are queries that operate on a From instance.
-   * @extends From
+function ndm_ConditionErrorProducer(DetailedError) {
+  /** 
+   * Custom error instance for Condition (lex/parse/compile) errors.
    */
-  class FromAdapter extends From {
+  class ConditionError extends DetailedError {
     /**
-     * Select from the table.
-     * @see Select#select
-     * @param {...(object|string)} [cols] - An optional set of columns to select.
-     * @return {Select} A Select instance that can be executed.
+     * Create the Error instance with a user-supplied message.
+     * @param {string} message - The Description of the error.
      */
-    select(/*...cols*/) {
-      throw new Error('select not implemented.');
-    }
-
-    /**
-     * Delete from the table.
-     * @param {string} [tableAlias] - The unique alias of the table from which
-     * records will be deleted.  Optional, defaults to the alias of the from
-     * table.
-     * @return {Delete} A Delete instance that can be executed.
-     */
-    delete(/*tableAlias*/) {
-      throw new Error('delete not implemented.');
-    }
-
-    /**
-     * Update a table.
-     * @param {Object} model - The model describing what to update.
-     * @see Update
-     * @return {Update} An Update instance that can be executed.
-     */
-    update(/*model*/) {
-      throw new Error('update not implemented.');
+    constructor(message) {
+      super(message, 'CONDITION_ERROR');
+      this.name = 'ConditionError';
     }
   }
 
-  return FromAdapter;
+  return ConditionError;
 }
 
 </code></pre>
