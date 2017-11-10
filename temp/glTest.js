@@ -6,13 +6,13 @@
 
   Promise
     .all([
-      textureMgr.loadImage('/example/RTS_Crate_0.png'),
-      textureMgr.loadImage('/example/ame_nebula/purplenebula_up.png'),
-      textureMgr.loadImage('/example/ame_nebula/purplenebula_dn.png'),
-      textureMgr.loadImage('/example/ame_nebula/purplenebula_rt.png'),
-      textureMgr.loadImage('/example/ame_nebula/purplenebula_lf.png'),
-      textureMgr.loadImage('/example/ame_nebula/purplenebula_ft.png'),
-      textureMgr.loadImage('/example/ame_nebula/purplenebula_bk.png'),
+      textureMgr.loadImage('example/RTS_Crate_0.png'),
+      textureMgr.loadImage('example/ame_nebula/purplenebula_up.png'),
+      textureMgr.loadImage('example/ame_nebula/purplenebula_dn.png'),
+      textureMgr.loadImage('example/ame_nebula/purplenebula_rt.png'),
+      textureMgr.loadImage('example/ame_nebula/purplenebula_lf.png'),
+      textureMgr.loadImage('example/ame_nebula/purplenebula_ft.png'),
+      textureMgr.loadImage('example/ame_nebula/purplenebula_bk.png'),
     ])
     .then(([crateImg, sUpImg, sDownImg, sRightImg, sLeftImg, sFrontImg, sBackImg]) => {
       const easel  = new bsy.Easel();
