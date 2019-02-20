@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <title>Batch Updating - Formn Docs</title>
+  <link rel="stylesheet" href="http://0.0.0.0:4000/assets/css/just-the-docs.css">
+  
+  <script type="text/javascript" src="http://0.0.0.0:4000/assets/js/vendor/lunr.min.js"></script>
+  
+  <script type="text/javascript" src="http://0.0.0.0:4000/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+
+  <div class="page-wrap">
+    <div class="side-bar">
+      <a href="http://0.0.0.0:4000" class="site-title fs-6 lh-tight">Formn Docs</a>
+      <span class="fs-3"><button class="js-main-nav-trigger navigation-list-toggle btn btn-outline" type="button" data-text-toggle="Hide">Menu</button></span>
+      <div class="navigation main-nav js-main-nav">
+        <nav>
+  <ul class="navigation-list">
+    
+    
+      
+        
+          <li class="navigation-list-item active">
+            
+            <a href="http://0.0.0.0:4000/404.html" class="navigation-list-link"></a>
+            
+          </li>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="http://0.0.0.0:4000/" class="navigation-list-link">Home</a>
+            
+          </li>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="http://0.0.0.0:4000/doc/getting-started/" class="navigation-list-link">Getting Started</a>
+            
+              
+              <ul class="navigation-list-child-list ">
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="http://0.0.0.0:4000/doc/getting-started/typescript-config.html" class="navigation-list-link">TypeScript Config</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="http://0.0.0.0:4000/doc/getting-started/installing.html" class="navigation-list-link">Installing</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="http://0.0.0.0:4000/doc/getting-started/tutorial-database-setup.html" class="navigation-list-link">Tutorial Database Setup</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            
+          </li>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="http://0.0.0.0:4000/doc/datacontext/" class="navigation-list-link">DataContext</a>
+            
+          </li>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="http://0.0.0.0:4000/doc/connecting/" class="navigation-list-link">Connecting</a>
+            
+              
+              <ul class="navigation-list-child-list ">
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="http://0.0.0.0:4000/doc/connecting/connection-options.html" class="navigation-list-link">Connection Options</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="http://0.0.0.0:4000/doc/connecting/establishing-a-connection.html" class="navigation-list-link">Establishing a Connection</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="http://0.0.0.0:4000/doc/connecting/env-vars.html" class="navigation-list-link">Env Vars</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            
+          </li>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="http://0.0.0.0:4000/doc/models/" class="navigation-list-link">Models</a>
+            
+              
+              <ul class="navigation-list-child-list ">
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="http://0.0.0.0:4000/doc/models/basic-model-decorators.html" class="navigation-list-link">Basic Model Decorators</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="http://0.0.0.0:4000/doc/models/relationships.html" class="navigation-list-link">Relationships</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="http://0.0.0.0:4000/doc/models/generating-models.html" class="navigation-list-link">Generating Models</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            
+          </li>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="http://0.0.0.0:4000/doc/creating/" class="navigation-list-link">Creating</a>
+            
+              
+              <ul class="navigation-list-child-list ">
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="http://0.0.0.0:4000/doc/creating/insert-a-record.html" class="navigation-list-link">Insert a Record</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            
+          </li>
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="http://0.0.0.0:4000/doc/retrieving/" class="navigation-list-link">Retrieving</a>
+            
+              
+              <ul class="navigation-list-child-list ">
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="http://0.0.0.0:4000/doc/retrieving/basic-retrieval.html" class="navigation-list-link">Basic Retrieval</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="http://0.0.0.0:4000/doc/retrieving/limiting-columns.html" class="navigation-list-link">Limiting Columns</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="http://0.0.0.0:4000/doc/retrieving/ordering.html" class="navigation-list-link">Ordering</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="http://0.0.0.0:4000/doc/retrieving/conditions.html" class="navigation-list-link">Conditions</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="http://0.0.0.0:4000/doc/retrieving/joining.html" class="navigation-list-link">Joining</a>
+                      
+                    </li>
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="http://0.0.0.0:4000/doc/retrieving/custom-join-predicates.html" class="navigation-list-link">Custom Join Predicates</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            
+          </li>
+        
+      
+    
+      
+        
+          <li class="navigation-list-item active">
+            
+            <a href="http://0.0.0.0:4000/doc/updating/" class="navigation-list-link">Updating</a>
+            
+              
+              <ul class="navigation-list-child-list ">
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="http://0.0.0.0:4000/doc/updating/updating-a-model.html" class="navigation-list-link">Updating a Model</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item  active">
+                      
+                      <a href="http://0.0.0.0:4000/doc/updating/batch-updating.html" class="navigation-list-link active">Batch Updating</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            
+          </li>
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="http://0.0.0.0:4000/doc/deleting/" class="navigation-list-link">Deleting</a>
+            
+              
+              <ul class="navigation-list-child-list ">
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="http://0.0.0.0:4000/doc/deleting/deleting-a-model.html" class="navigation-list-link">Deleting a Model</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="http://0.0.0.0:4000/doc/deleting/batch-deleting.html" class="navigation-list-link">Batch Deleting</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            
+          </li>
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="http://0.0.0.0:4000/doc/transactions/" class="navigation-list-link">Transactions</a>
+            
+          </li>
+        
+      
+    
+  </ul>
+</nav>
+
+      </div>
+      <footer role="contentinfo" class="site-footer">
+        <p class="text-small text-grey-dk-000 mb-0">This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.</p>
+      </footer>
+    </div>
+    <div class="main-content-wrap">
+      <div class="page-header">
+        <div class="main-content">
+          
+          <div class="search js-search">
+            <div class="search-input-wrap">
+              <input type="text" class="js-search-input search-input" placeholder="Search Formn Docs" aria-label="Search Formn Docs" autocomplete="off">
+              <svg width="14" height="14" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" class="search-icon"><title>Search</title><g fill-rule="nonzero"><path d="M17.332 20.735c-5.537 0-10-4.6-10-10.247 0-5.646 4.463-10.247 10-10.247 5.536 0 10 4.601 10 10.247s-4.464 10.247-10 10.247zm0-4c3.3 0 6-2.783 6-6.247 0-3.463-2.7-6.247-6-6.247s-6 2.784-6 6.247c0 3.464 2.7 6.247 6 6.247z"/><path d="M11.672 13.791L.192 25.271 3.02 28.1 14.5 16.62z"/></g></svg>
+            </div>
+            <div class="js-search-results search-results-wrap"></div>
+          </div>
+          
+          
+            <ul class="list-style-none text-small mt-md-1 mb-md-1 pb-4 pb-md-0 js-aux-nav aux-nav">
+              
+                <li class="d-inline-block my-0 mr-2"><a href="//github.com/benbotto/formn/tree/master">Formn on GitHub</a></li>
+              
+                <li class="d-inline-block my-0"><a href="/api-doc/latest/globals.html">API Docs</a></li>
+              
+            </ul>
+          
+        </div>
+      </div>
+      <div class="main-content">
+        
+          
+            <nav class="breadcrumb-nav">
+              <ol class="breadcrumb-nav-list">
+                
+                  <li class="breadcrumb-nav-list-item"><a href="http://0.0.0.0:4000/doc/updating/">Updating</a></li>
+                
+                <li class="breadcrumb-nav-list-item"><span>Batch Updating</span></li>
+              </ol>
+            </nav>
+          
+        
+        <div class="page-content">
+          <h1 id="batch-updating">Batch Updating</h1>
+
+<p>In the <a href="./updating-a-model.html">previous section</a> we updated a single model by
+id.  While that’s a common scenario, often there’s a need to update a bunch of
+records simultaneously based on some filter condition.</p>
+
+<p>If you look back at the <a href="../datacontext">DataContext</a> section, you’ll see that
+the <a href="../../api-doc/latest/classes/datacontext.html#from">DataContext.from</a>
+method can be used for batch updating.  As was mentioned in the <a href="../retrieving/basic-retrieval.html">Basic
+Retrieval</a> section, the
+<a href="../../api-doc/latest/classes/datacontext.html#from">DataContext.from</a> method
+returns a <a href="../../api-doc/latest/classes/fromadapter.html">FromAdapter</a>
+instance.  That class has an
+<a href="../../api-doc/latest/classes/fromadapter.html#update">update</a> method that can
+be used to perform batch updates.</p>
+
+<h3 id="update-with-a-where-clause">Update With a Where Clause</h3>
+
+<p>In the last chapter, <a href="../retrieving/conditions.html">Conditions</a> were covered.
+Because both retrieving and batch updating share a common inteface–namely
+<a href="../../api-doc/latest/classes/fromadapter.html">FromAdapter</a>–both are filtered
+in the same way: using the
+<a href="../../api-doc/latest/classes/fromadapter.html#where">FromAdapter.where</a> method
+along with the
+<a href="../../api-doc/latest/classes/conditionbuilder.html">ConditionBuilder</a> class.
+(You can also use join operations, as described in
+<a href="../retrieving/joining.html">Joining</a> and <a href="../deleting/batch-deleting.html">Batch
+Deleting</a>.)</p>
+
+<p>When we created the <a href="../getting-started/tutorial-database-setup.html">example
+database</a>, we added <code class="highlighter-rouge">type</code>
+column to the <code class="highlighter-rouge">phone_numbers</code> table.  Let’s change all “mobile” phone numbers
+to “cell.”</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Used for building the update statement's where clause.</span>
+<span class="kd">const</span> <span class="nx">cb</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ConditionBuilder</span><span class="p">();</span>
+
+<span class="c1">// Change phone_numbers.type from "mobile" to "cell."</span>
+<span class="kd">const</span> <span class="nx">query</span><span class="p">:</span> <span class="nx">Update</span> <span class="o">=</span> <span class="nx">dataContext</span>
+  <span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="nx">PhoneNumber</span><span class="p">,</span> <span class="s1">'pn'</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">where</span><span class="p">(</span><span class="nx">cb</span><span class="p">.</span><span class="nx">eq</span><span class="p">(</span><span class="s1">'pn.type'</span><span class="p">,</span> <span class="s1">':mob'</span><span class="p">,</span> <span class="s1">'mobile'</span><span class="p">))</span>
+  <span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="s1">'pn.type'</span><span class="p">:</span> <span class="s1">'cell'</span><span class="p">});</span>
+</code></pre></div></div>
+
+<p>In the above code, we’ve used the
+<a href="../../api-doc/latest/classes/datacontext.html#from">DataContext.from</a> method,
+supplying two parameters:</p>
+
+<ol>
+  <li>An <a href="../../api-doc/latest/globals.html#entitytype">EntityType</a>, which is some
+<a href="../../api-doc/latest/globals.html#table">Table</a>-decorated class.  (See the
+<a href="../models">Models</a> section.)</li>
+  <li>An alias, which lets us reference the
+<a href="../../api-doc/latest/globals.html#entitytype">EntityType</a> using a
+short-hand notation (<code class="highlighter-rouge">pn</code> above).</li>
+</ol>
+
+<p>We then used the
+<a href="../../api-doc/latest/classes/fromadapter.html#where">FromAdapter.where</a> method
+to filter the query, limiting the update to mobile-type phone numbers.
+(Building conditions and filtering queries is covered in greater depth in the
+<a href="../retrieving/conditions.html">Conditions</a> section.)  Lastly, we called
+<a href="../../api-doc/latest/classes/fromadapter.html#update">FromAdapter.update</a>,
+supplying a single object as a parameter.  Each key in the object corresponds
+to a fully-qualified property name in the form <code class="highlighter-rouge">&lt;table-alias&gt;.&lt;property-name&gt;</code>.
+Above, we set <code class="highlighter-rouge">pn.type</code> to “cell.”</p>
+
+<p><a href="../../api-doc/latest/classes/fromadapter.html#update">FromAdapter.update</a>
+returns an <a href="../../api-doc/latest/classes/update.html">Update</a> instance.  And
+like all Formn queries, that class inherits from
+<a href="../../api-doc/latest/classes/query.html">Query</a>.  As usual, we can log the SQL
+for debugging purposes using
+<a href="../../api-doc/latest/classes/update.html#tostring">Update.toString</a>.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">query</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+</code></pre></div></div>
+
+<p>And to run the query, we call
+<a href="../../api-doc/latest/classes/update.html#execute">Update.execute</a>.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">result</span><span class="p">:</span> <span class="nx">MutateResultType</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">query</span><span class="p">.</span><span class="nx">execute</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>The returned
+<a href="../../api-doc/latest/globals.html#mutateresulttype">MutateResultType</a> will
+have at least an <code class="highlighter-rouge">affectedRows</code> property describing how many rows were updated.</p>
+
+<h3 id="full-example">Full Example</h3>
+
+<p>The example presented above is located under
+<a href="https://github.com/benbotto/formn-example/blob/1.11.0/src/update/batch-update-mobile-numbers.ts">src/update/batch-update-mobile-numbers.ts</a>
+in the formn-example repository.  Run it with <code class="highlighter-rouge">ts-node</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx ts-node ./src/update/batch-update-mobile-numbers.ts
+</code></pre></div></div>
+
+<p>The output is shown below.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UPDATE  `phone_numbers` AS `pn`
+SET
+`pn`.`type` = :pn_type_0
+WHERE   `pn`.`type` = :mob
+ResultSetHeader {
+  fieldCount: 0,
+  affectedRows: 2,
+  insertId: 0,
+  info: 'Rows matched: 2  Changed: 2  Warnings: 0',
+  serverStatus: 34,
+  warningStatus: 0,
+  changedRows: 2
+}
+</code></pre></div></div>
+
+<p>Note that only the <code class="highlighter-rouge">affectedRows</code> property is guaranteed, but additional
+metadata may be present depending on the underlying database driver.</p>
+
+
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</html>
