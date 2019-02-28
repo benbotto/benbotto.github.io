@@ -860,7 +860,7 @@ the data-mapper pattern.</p>
 <p>and makes them look like this:</p>
 
 <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">query</span><span class="p">:</span> <span class="nx">Select</span><span class="o">&lt;</span><span class="nx">Person</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nx">dataContext</span>
-  <span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="nx">Person</span><span class="p">,</span> <span class="s1">'u'</span><span class="p">)</span>
+  <span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="nx">Person</span><span class="p">,</span> <span class="s1">'p'</span><span class="p">)</span>
   <span class="p">.</span><span class="nx">innerJoin</span><span class="p">(</span><span class="nx">PhoneNumber</span><span class="p">,</span> <span class="s1">'pn'</span><span class="p">,</span> <span class="s1">'p.phoneNumbers'</span><span class="p">)</span>
   <span class="p">.</span><span class="nx">select</span><span class="p">(</span>
     <span class="s1">'p.id'</span><span class="p">,</span> <span class="s1">'p.firstName'</span><span class="p">,</span> <span class="s1">'p.lastName'</span><span class="p">,</span>
