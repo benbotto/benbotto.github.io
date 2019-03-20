@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <title>Deleting a Model - Formn Docs</title>
+  <link rel="stylesheet" href="/doc/formn/5.x.x/assets/css/just-the-docs.css">
+  
+  <script type="text/javascript" src="/doc/formn/5.x.x/assets/js/vendor/lunr.min.js"></script>
+  
+  <script type="text/javascript" src="/doc/formn/5.x.x/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+
+  <div class="page-wrap">
+    <div class="side-bar">
+      <a href="/doc/formn/5.x.x" class="site-title fs-6 lh-tight">Formn Docs</a>
+      <span class="fs-3"><button class="js-main-nav-trigger navigation-list-toggle btn btn-outline" type="button" data-text-toggle="Hide">Menu</button></span>
+      <div class="navigation main-nav js-main-nav">
+        <nav>
+  <ul class="navigation-list">
+    
+    
+      
+        
+          <li class="navigation-list-item active">
+            
+            <a href="/doc/formn/5.x.x/404.html" class="navigation-list-link"></a>
+            
+          </li>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="/doc/formn/5.x.x/" class="navigation-list-link">Home</a>
+            
+          </li>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="/doc/formn/5.x.x/doc/getting-started/" class="navigation-list-link">Getting Started</a>
+            
+              
+              <ul class="navigation-list-child-list ">
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="/doc/formn/5.x.x/doc/getting-started/typescript-config.html" class="navigation-list-link">TypeScript Config</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="/doc/formn/5.x.x/doc/getting-started/installing.html" class="navigation-list-link">Installing</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="/doc/formn/5.x.x/doc/getting-started/tutorial-database-setup.html" class="navigation-list-link">Tutorial Database Setup</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            
+          </li>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="/doc/formn/5.x.x/doc/datacontext/" class="navigation-list-link">DataContext</a>
+            
+          </li>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="/doc/formn/5.x.x/doc/connecting/" class="navigation-list-link">Connecting</a>
+            
+              
+              <ul class="navigation-list-child-list ">
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="/doc/formn/5.x.x/doc/connecting/connection-options.html" class="navigation-list-link">Connection Options</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="/doc/formn/5.x.x/doc/connecting/establishing-a-connection.html" class="navigation-list-link">Establishing a Connection</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="/doc/formn/5.x.x/doc/connecting/env-vars.html" class="navigation-list-link">Env Vars</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            
+          </li>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="/doc/formn/5.x.x/doc/models/" class="navigation-list-link">Models</a>
+            
+              
+              <ul class="navigation-list-child-list ">
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="/doc/formn/5.x.x/doc/models/basic-model-decorators.html" class="navigation-list-link">Basic Model Decorators</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="/doc/formn/5.x.x/doc/models/relationships.html" class="navigation-list-link">Relationships</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="/doc/formn/5.x.x/doc/models/generating-models.html" class="navigation-list-link">Generating Models</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            
+          </li>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="/doc/formn/5.x.x/doc/creating/" class="navigation-list-link">Creating</a>
+            
+              
+              <ul class="navigation-list-child-list ">
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="/doc/formn/5.x.x/doc/creating/insert-a-record.html" class="navigation-list-link">Insert a Record</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            
+          </li>
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="/doc/formn/5.x.x/doc/retrieving/" class="navigation-list-link">Retrieving</a>
+            
+              
+              <ul class="navigation-list-child-list ">
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="/doc/formn/5.x.x/doc/retrieving/basic-retrieval.html" class="navigation-list-link">Basic Retrieval</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="/doc/formn/5.x.x/doc/retrieving/limiting-columns.html" class="navigation-list-link">Limiting Columns</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="/doc/formn/5.x.x/doc/retrieving/ordering.html" class="navigation-list-link">Ordering</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="/doc/formn/5.x.x/doc/retrieving/conditions.html" class="navigation-list-link">Conditions</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="/doc/formn/5.x.x/doc/retrieving/joining.html" class="navigation-list-link">Joining</a>
+                      
+                    </li>
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="/doc/formn/5.x.x/doc/retrieving/custom-join-predicates.html" class="navigation-list-link">Custom Join Predicates</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            
+          </li>
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="/doc/formn/5.x.x/doc/updating/" class="navigation-list-link">Updating</a>
+            
+              
+              <ul class="navigation-list-child-list ">
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="/doc/formn/5.x.x/doc/updating/updating-a-model.html" class="navigation-list-link">Updating a Model</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="/doc/formn/5.x.x/doc/updating/batch-updating.html" class="navigation-list-link">Batch Updating</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            
+          </li>
+        
+      
+    
+      
+        
+          <li class="navigation-list-item active">
+            
+            <a href="/doc/formn/5.x.x/doc/deleting/" class="navigation-list-link">Deleting</a>
+            
+              
+              <ul class="navigation-list-child-list ">
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item  active">
+                      
+                      <a href="/doc/formn/5.x.x/doc/deleting/deleting-a-model.html" class="navigation-list-link active">Deleting a Model</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="/doc/formn/5.x.x/doc/deleting/batch-deleting.html" class="navigation-list-link">Batch Deleting</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            
+          </li>
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="/doc/formn/5.x.x/doc/transactions/" class="navigation-list-link">Transactions</a>
+            
+          </li>
+        
+      
+    
+  </ul>
+</nav>
+
+      </div>
+      <footer role="contentinfo" class="site-footer">
+        <p class="text-small text-grey-dk-000 mb-0">This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.</p>
+      </footer>
+    </div>
+    <div class="main-content-wrap">
+      <div class="page-header">
+        <div class="main-content">
+          
+          <div class="search js-search">
+            <div class="search-input-wrap">
+              <input type="text" class="js-search-input search-input" placeholder="Search Formn Docs" aria-label="Search Formn Docs" autocomplete="off">
+              <svg width="14" height="14" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" class="search-icon"><title>Search</title><g fill-rule="nonzero"><path d="M17.332 20.735c-5.537 0-10-4.6-10-10.247 0-5.646 4.463-10.247 10-10.247 5.536 0 10 4.601 10 10.247s-4.464 10.247-10 10.247zm0-4c3.3 0 6-2.783 6-6.247 0-3.463-2.7-6.247-6-6.247s-6 2.784-6 6.247c0 3.464 2.7 6.247 6 6.247z"/><path d="M11.672 13.791L.192 25.271 3.02 28.1 14.5 16.62z"/></g></svg>
+            </div>
+            <div class="js-search-results search-results-wrap"></div>
+          </div>
+          
+          
+            <ul class="list-style-none text-small mt-md-1 mb-md-1 pb-4 pb-md-0 js-aux-nav aux-nav">
+              
+                <li class="d-inline-block my-0 mr-2"><a href="//github.com/benbotto/formn/tree/master">Formn on GitHub</a></li>
+              
+                <li class="d-inline-block my-0"><a href="/doc/formn/5.x.x/api-doc/latest/globals.html">API Docs</a></li>
+              
+            </ul>
+          
+        </div>
+      </div>
+      <div class="main-content">
+        
+          
+            <nav class="breadcrumb-nav">
+              <ol class="breadcrumb-nav-list">
+                
+                  <li class="breadcrumb-nav-list-item"><a href="/doc/formn/5.x.x/doc/deleting/">Deleting</a></li>
+                
+                <li class="breadcrumb-nav-list-item"><span>Deleting a Model</span></li>
+              </ol>
+            </nav>
+          
+        
+        <div class="page-content">
+          <h1 id="deleting-a-model">Deleting a Model</h1>
+
+<p>A common scenario is to delete a single model by id.  That’s done using the
+<a href="../../api-doc/latest/classes/datacontext.html#delete">DataContext.delete</a>
+method.  The usage is pretty much identical to updating a model by id, so be
+sure to review the <a href="../updating/updating-a-model.html">Updating a Model</a>
+section.  It has more detailed documentation.</p>
+
+<h2 id="delete-a-phonenumber-instance">Delete a PhoneNumber Instance</h2>
+
+<p>Deleting a record by id is simple.  Below we’ll delete a single
+<a href="https://github.com/benbotto/formn-example/blob/1.12.0/src/entity/phone-number.entity.ts">PhoneNumber</a>
+record.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Delete the PhoneNumber with ID 1.</span>
+<span class="kd">const</span> <span class="nx">phone</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PhoneNumber</span><span class="p">();</span>
+
+<span class="nx">phone</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">query</span><span class="p">:</span> <span class="nx">DeleteModel</span><span class="o">&lt;</span><span class="nx">PhoneNumber</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nx">dataContext</span>
+  <span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">PhoneNumber</span><span class="p">,</span> <span class="nx">phone</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">query</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+
+<span class="c1">// If no rows are affected (i.e. if a phone number with an id of 1 does not</span>
+<span class="c1">// exist), then an error will be raised.</span>
+<span class="kr">await</span> <span class="nx">query</span><span class="p">.</span><span class="nx">execute</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>First, we instantiate a
+<a href="https://github.com/benbotto/formn-example/blob/1.12.0/src/entity/phone-number.entity.ts">PhoneNumber</a>
+and set the <code class="highlighter-rouge">id</code> to 1.  Then we call
+<a href="../../api-doc/latest/classes/datacontext.html#delete">DataContext.delete</a>,
+supplying two parameters:</p>
+
+<ol>
+  <li>An <a href="../../api-doc/latest/globals.html#entitytype">EntityType</a>, which is some
+<a href="../../api-doc/latest/globals.html#table">Table</a>-decorated class.  (See the
+<a href="../models">Models</a> section.)</li>
+  <li>A model, which is an instance of the
+<a href="../../api-doc/latest/globals.html#entitytype">EntityType</a>.  The model must
+have at least the primary key set.</li>
+</ol>
+
+<p>That returns a <a href="../../api-doc/latest/classes/deletemodel.html">DeleteModel</a>
+instance, which is a type of <a href="../../api-doc/latest/classes/query.html">Query</a>.
+Like all Fomrn queries, we can log the SQL that Formn generates using
+<a href="../../api-doc/latest/classes/deletemodel.html#tostring">DeleteModel.toString</a>,
+and <a href="../../api-doc/latest/classes/deletemodel.html#execute">execute</a> it.</p>
+
+<p>Note that if there is no record with an <code class="highlighter-rouge">id</code> of 1, then an error is raised.</p>
+
+<h3 id="full-example">Full Example</h3>
+
+<p>The code discussed above is in the formn-example repository under
+<a href="https://github.com/benbotto/formn-example/blob/1.12.0/src/delete/delete-phone-number.ts">src/delete/delete-phone-number.ts</a>.
+It’s also printed below for convenience.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span>
+  <span class="nx">MySQLDataContext</span><span class="p">,</span> <span class="nx">ConnectionOptions</span><span class="p">,</span> <span class="nx">DeleteModel</span>
+<span class="p">}</span> <span class="k">from</span> <span class="s1">'formn'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">PhoneNumber</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'../entity/phone-number.entity'</span><span class="p">;</span>
+
+<span class="k">async</span> <span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">connOpts</span><span class="p">:</span> <span class="nx">ConnectionOptions</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'../../connections.json'</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">dataContext</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MySQLDataContext</span><span class="p">();</span>
+
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="kr">await</span> <span class="nx">dataContext</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">connOpts</span><span class="p">);</span>
+
+    <span class="c1">// Delete the PhoneNumber with ID 1.</span>
+    <span class="kd">const</span> <span class="nx">phone</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PhoneNumber</span><span class="p">();</span>
+
+    <span class="nx">phone</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="kd">const</span> <span class="na">query</span><span class="p">:</span> <span class="nx">DeleteModel</span><span class="o">&lt;</span><span class="nx">PhoneNumber</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nx">dataContext</span>
+      <span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">PhoneNumber</span><span class="p">,</span> <span class="nx">phone</span><span class="p">);</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">query</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+
+    <span class="c1">// If no rows are affected (i.e. if a phone number with an id of 1 does not</span>
+    <span class="c1">// exist), then an error will be raised.</span>
+    <span class="kr">await</span> <span class="nx">query</span><span class="p">.</span><span class="nx">execute</span><span class="p">();</span>
+    <span class="kr">await</span> <span class="nx">dataContext</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="k">catch</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">main</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>Run it using <code class="highlighter-rouge">ts-node</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx ts-node ./src/delete/delete-phone-number.ts
+</code></pre></div></div>
+
+<p>Here’s the output:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DELETE  `phone_numbers`
+FROM    `phone_numbers` AS `phone_numbers`
+WHERE   (`phone_numbers`.`phoneNumberID` = :phone_numbers_id_0)
+</code></pre></div></div>
+
+
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</html>
