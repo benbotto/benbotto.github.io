@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
-  <title>Creating - Formn Docs</title>
+  <title>Validation Classes - Formn Docs</title>
   <link rel="stylesheet" href="/doc/formn/5.x.x/assets/css/just-the-docs.css">
   
   <script type="text/javascript" src="/doc/formn/5.x.x/assets/js/vendor/lunr.min.js"></script>
@@ -444,9 +444,9 @@
     
       
         
-          <li class="navigation-list-item active">
+          <li class="navigation-list-item">
             
-            <a href="/doc/formn/5.x.x/doc/creating/" class="navigation-list-link active">Creating</a>
+            <a href="/doc/formn/5.x.x/doc/creating/" class="navigation-list-link">Creating</a>
             
               
               <ul class="navigation-list-child-list ">
@@ -856,7 +856,7 @@
     
       
         
-          <li class="navigation-list-item">
+          <li class="navigation-list-item active">
             
             <a href="/doc/formn/5.x.x/doc/validation/" class="navigation-list-link">Validation</a>
             
@@ -870,9 +870,9 @@
                   
                 
                   
-                    <li class="navigation-list-item ">
+                    <li class="navigation-list-item  active">
                       
-                      <a href="/doc/formn/5.x.x/doc/validation/validation-classes.html" class="navigation-list-link">Validation Classes</a>
+                      <a href="/doc/formn/5.x.x/doc/validation/validation-classes.html" class="navigation-list-link active">Validation Classes</a>
                       
                     </li>
                   
@@ -983,103 +983,102 @@
       <div class="main-content">
         
           
+            <nav class="breadcrumb-nav">
+              <ol class="breadcrumb-nav-list">
+                
+                  <li class="breadcrumb-nav-list-item"><a href="/doc/formn/5.x.x/doc/validation/">Validation</a></li>
+                
+                <li class="breadcrumb-nav-list-item"><span>Validation Classes</span></li>
+              </ol>
+            </nav>
+          
         
         <div class="page-content">
-          <h1 id="creating">Creating</h1>
+          <h1 id="validation-classes">Validation Classes</h1>
 
-<p>This section deals with inserting entities into the database.  It assumes
-familiarity with the <a href="../getting-started/">Getting Started</a>,
-<a href="../datacontext/">DataContext</a>, and <a href="../models/">Models</a> sections.</p>
+<p>There are three built-in validation classes in Formn, each of which extends the
+<a href="../../api-doc/latest/classes/modelvalidator.html">ModelValidator</a> base class.</p>
+
+<ul>
+  <li><a href="../../api-doc/latest/classes/insertmodelvalidator.html">InsertModelValidator</a>:
+Used to validate a model prior to inserting it.</li>
+  <li><a href="../../api-doc/latest/classes/updatemodelvalidator.html">UpdateModelValidator</a>:
+Used to validate a model before updating by ID.</li>
+  <li><a href="../../api-doc/latest/classes/deletemodelvalidator.html">DeleteModelValidator</a>:
+Used to validate a model before deleting by ID.</li>
+</ul>
+
+<p>All three classes work the same way: instantiate the class, then call the
+<a href="../../api-doc/latest/classes/modelvalidator.html#validate">validate</a> method
+with two arguments.</p>
+
+<ol>
+  <li>An object to validate.  This can be a plain JavaScript object, like an
+object from an API request, or an instance of a class.</li>
+  <li>The constructor of a
+@<a href="../../api-doc/latest/globals.html#table">Table</a>-decorated class, a.k.a. an
+“Entity.”  The first parameter–the object–will be checked against the
+Entity’s metadata to ensure that it’s acceptable for the requested CRUD
+operation.</li>
+</ol>
+
+<p>The <a href="../../api-doc/latest/classes/modelvalidator.html#validate">validate</a>
+method returns a <code class="highlighter-rouge">Promise</code> that is resolved if the object is valid, or
+otherwise rejected with an error describing why the object is invalid.</p>
+
+<p>In code terms, here’s how validation looks.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">InsertModelValidator</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'formn'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">PhoneNumber</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'../entity/phone-number.entity'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">validator</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">InsertModelValidator</span><span class="p">();</span>
+
+<span class="kd">const</span> <span class="nx">phone</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">personId</span><span class="p">:</span>    <span class="mi">1</span><span class="p">,</span>
+  <span class="na">phoneNumber</span><span class="p">:</span> <span class="s1">'530-222-3333'</span><span class="p">,</span>
+  <span class="na">type</span><span class="p">:</span>        <span class="s1">'mobile'</span>
+<span class="p">};</span>
+
+<span class="c1">// Validate "phone" against the "PhoneNumber" entity, ensuring that "phone" can</span>
+<span class="c1">// be inserted.</span>
+<span class="nx">validator</span>
+  <span class="p">.</span><span class="nx">validate</span><span class="p">(</span><span class="nx">phone</span><span class="p">,</span> <span class="nx">PhoneNumber</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Object is valid.'</span><span class="p">))</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">'Object is invalid: '</span><span class="p">,</span> <span class="nx">err</span><span class="p">));</span>
+</code></pre></div></div>
+
+<h3 id="column-metadata">Column Metadata</h3>
+
+<p>Back in the <a href="../models/">Models</a> section, we defined a
+<a href="https://github.com/benbotto/formn-example/blob/master/src/entity/phone-number.entity.ts">PhoneNumber</a>
+class and decorated each property with the
+<a href="../../api-doc/latest/globals.html#column">Column</a> decorator.
+<a href="../../api-doc/latest/globals.html#column">Column</a> takes a
+<a href="../../api-doc/latest/classes/columnmetaoptions.html">ColumnMetaOptions</a> object
+as an argument, which provides metadata about each property’s corresponding
+database column, like the data type, maximum length, nullability, and so on.
+Let’s look more closely at the <code class="highlighter-rouge">PhoneNumber.phoneNumber</code> property.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">@</span><span class="nd">Column</span><span class="p">({</span><span class="na">isNullable</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="na">maxLength</span><span class="p">:</span> <span class="mi">255</span><span class="p">,</span> <span class="na">sqlDataType</span><span class="p">:</span> <span class="s1">'varchar'</span><span class="p">})</span>
+<span class="p">@</span><span class="nd">Validate</span><span class="p">(</span><span class="k">new</span> <span class="nx">PhoneValidator</span><span class="p">())</span>
+<span class="nx">phoneNumber</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>That given, Formn knows that the <code class="highlighter-rouge">phoneNumber</code> property must be a string, it
+must not exceed 255 characters, and it cannot be <code class="highlighter-rouge">null</code>.  There’s also some
+custom, user-defined validation provided by the
+<a href="https://github.com/benbotto/bsy-validation/tree/2.x.x">bsy-validation</a>
+package.  Namely, we’ve specified that the <code class="highlighter-rouge">phoneNumber</code> property should go
+through
+<a href="https://github.com/benbotto/bsy-validation/tree/2.x.x">bsy-validation</a>’s
+<a href="https://github.com/benbotto/bsy-validation/blob/2.x.x/src/validator/phone-validator.ts">PhoneValidator</a>.</p>
+
+<p><a href="validation-rules.html">Next up</a>, we’ll describe how the validation classes
+work in detail, and look over some examples.</p>
 
 
 
-          
-          <hr>
-          <h2 class="text-delta">Table of contents</h2>
-          
-          <ul>
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-              <li>
-                <a href="/doc/formn/5.x.x/doc/creating/insert-a-record.html">Insert a Record</a>
-              </li>
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-          </ul>
           
         </div>
       </div>

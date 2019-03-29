@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
-  <title>Creating - Formn Docs</title>
+  <title>Validation Rules - Formn Docs</title>
   <link rel="stylesheet" href="/doc/formn/5.x.x/assets/css/just-the-docs.css">
   
   <script type="text/javascript" src="/doc/formn/5.x.x/assets/js/vendor/lunr.min.js"></script>
@@ -444,9 +444,9 @@
     
       
         
-          <li class="navigation-list-item active">
+          <li class="navigation-list-item">
             
-            <a href="/doc/formn/5.x.x/doc/creating/" class="navigation-list-link active">Creating</a>
+            <a href="/doc/formn/5.x.x/doc/creating/" class="navigation-list-link">Creating</a>
             
               
               <ul class="navigation-list-child-list ">
@@ -856,7 +856,7 @@
     
       
         
-          <li class="navigation-list-item">
+          <li class="navigation-list-item active">
             
             <a href="/doc/formn/5.x.x/doc/validation/" class="navigation-list-link">Validation</a>
             
@@ -892,9 +892,9 @@
                   
                 
                   
-                    <li class="navigation-list-item ">
+                    <li class="navigation-list-item  active">
                       
-                      <a href="/doc/formn/5.x.x/doc/validation/validation-rules.html" class="navigation-list-link">Validation Rules</a>
+                      <a href="/doc/formn/5.x.x/doc/validation/validation-rules.html" class="navigation-list-link active">Validation Rules</a>
                       
                     </li>
                   
@@ -983,103 +983,259 @@
       <div class="main-content">
         
           
+            <nav class="breadcrumb-nav">
+              <ol class="breadcrumb-nav-list">
+                
+                  <li class="breadcrumb-nav-list-item"><a href="/doc/formn/5.x.x/doc/validation/">Validation</a></li>
+                
+                <li class="breadcrumb-nav-list-item"><span>Validation Rules</span></li>
+              </ol>
+            </nav>
+          
         
         <div class="page-content">
-          <h1 id="creating">Creating</h1>
+          <h1 id="validation-rules">Validation Rules</h1>
 
-<p>This section deals with inserting entities into the database.  It assumes
-familiarity with the <a href="../getting-started/">Getting Started</a>,
-<a href="../datacontext/">DataContext</a>, and <a href="../models/">Models</a> sections.</p>
+<p>In the <a href="validation-classes.html">last section</a> we gave an overview of Formn’s
+built-in validation classes.  Obviously, validation differs between create,
+update, and delete operations.  For example, when inserting a
+<a href="https://github.com/benbotto/formn-example/blob/master/src/entity/phone-number.entity.ts">PhoneNumber</a>
+instance, the <code class="highlighter-rouge">phoneNumber</code> property is required: it cannot be <code class="highlighter-rouge">null</code>; it
+cannot be <code class="highlighter-rouge">undefined</code>.  On the other hand, when updating a
+<a href="https://github.com/benbotto/formn-example/blob/master/src/entity/phone-number.entity.ts">PhoneNumber</a>,
+the <code class="highlighter-rouge">phoneNumber</code> property can be omitted: the user may want to update
+partially, e.g. just change the <code class="highlighter-rouge">type</code>.</p>
+
+<p>The specific validation rules for each operation are laid out below.  Each has
+examples which reference the
+<a href="https://github.com/benbotto/formn-example/blob/master/src/entity/phone-number.entity.ts">PhoneNumber</a>
+class, shown here for convenience.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Validate</span><span class="p">,</span> <span class="nx">PhoneValidator</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'bsy-validation'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Table</span><span class="p">,</span> <span class="nx">Column</span><span class="p">,</span> <span class="nx">ManyToOne</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'formn'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Person</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./person.entity'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">Table</span><span class="p">({</span><span class="na">name</span><span class="p">:</span> <span class="s1">'phone_numbers'</span><span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">PhoneNumber</span> <span class="p">{</span>
+  <span class="p">@</span><span class="nd">Column</span><span class="p">({</span><span class="na">name</span><span class="p">:</span> <span class="s1">'personID'</span><span class="p">,</span> <span class="na">isNullable</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="na">sqlDataType</span><span class="p">:</span> <span class="s1">'int'</span><span class="p">})</span>
+  <span class="nx">personId</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+
+  <span class="p">@</span><span class="nd">Column</span><span class="p">({</span><span class="na">isNullable</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="na">maxLength</span><span class="p">:</span> <span class="mi">255</span><span class="p">,</span> <span class="na">sqlDataType</span><span class="p">:</span> <span class="s1">'varchar'</span><span class="p">})</span>
+  <span class="p">@</span><span class="nd">Validate</span><span class="p">(</span><span class="k">new</span> <span class="nx">PhoneValidator</span><span class="p">())</span>
+  <span class="nx">phoneNumber</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+
+  <span class="p">@</span><span class="nd">Column</span><span class="p">({</span><span class="na">name</span><span class="p">:</span> <span class="s1">'phoneNumberID'</span><span class="p">,</span> <span class="na">isPrimary</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="na">isGenerated</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="na">isNullable</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="na">sqlDataType</span><span class="p">:</span> <span class="s1">'int'</span><span class="p">})</span>
+  <span class="nx">id</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+
+  <span class="p">@</span><span class="nd">Column</span><span class="p">({</span><span class="na">maxLength</span><span class="p">:</span> <span class="mi">255</span><span class="p">,</span> <span class="na">sqlDataType</span><span class="p">:</span> <span class="s1">'varchar'</span><span class="p">})</span>
+  <span class="nx">type</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+
+  <span class="p">@</span><span class="nd">ManyToOne</span><span class="o">&lt;</span><span class="nx">PhoneNumber</span><span class="p">,</span> <span class="nx">Person</span><span class="o">&gt;</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">Person</span><span class="p">,</span> <span class="p">(</span><span class="nx">l</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="nx">l</span><span class="p">.</span><span class="nx">personId</span><span class="p">,</span> <span class="nx">r</span><span class="p">.</span><span class="nx">id</span><span class="p">])</span>
+  <span class="nx">person</span><span class="p">:</span> <span class="nx">Person</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="insertmodelvalidator">InsertModelValidator</h3>
+
+<p>Use this class before inserting records.</p>
+
+<ol>
+  <li>Values associated with generated columns must not be defined.  For example,
+<code class="highlighter-rouge">PhoneNumber.id</code> cannot be manually set because it’s associated with an
+auto-incrementing primary key column.</li>
+  <li>If a column is not nullable and does not have a default value, the associated
+value must be defined.</li>
+  <li>If the object passes steps 1 and 2, the <code class="highlighter-rouge">ModelValidator</code> rules are applied
+(see below).</li>
+</ol>
+
+<p>The following object is not a valid
+<a href="https://github.com/benbotto/formn-example/blob/master/src/entity/phone-number.entity.ts">PhoneNumber</a>
+object because:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">id</code> is associated with a generated column, and thus cannot be defined.</li>
+  <li><code class="highlighter-rouge">phoneNumber</code> and <code class="highlighter-rouge">personId</code> correspond to non-nullable columns, so they
+must be defined.</li>
+</ol>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">phone</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">id</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="updatemodelvalidator">UpdateModelValidator</h3>
+
+<p>Use this class prior to updating a model by ID.</p>
+
+<ol>
+  <li>The property or properties associated with the primary key column(s) must be
+defined and cannot be <code class="highlighter-rouge">null</code>.</li>
+  <li>If the object passes step 1, the <code class="highlighter-rouge">ModelValidator</code> rules are applied
+(see below).</li>
+</ol>
+
+<p>The below object is not a valid
+<a href="https://github.com/benbotto/formn-example/blob/master/src/entity/phone-number.entity.ts">PhoneNumber</a>
+object because:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">id</code> is not defined.</li>
+</ol>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">phone</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">personId</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
+  <span class="na">type</span><span class="p">:</span> <span class="s1">'mobile'</span><span class="p">,</span>
+  <span class="na">phoneNumber</span><span class="p">:</span> <span class="s1">'530-222-3333'</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="deletemodelvalidator">DeleteModelValidator</h3>
+
+<p>Use this class prior to deleting a model by ID.</p>
+
+<ol>
+  <li>The property or properties associated with the primary key column(s) must be
+defined and cannot be <code class="highlighter-rouge">null</code>.</li>
+</ol>
+
+<p>No other validation is applied.</p>
+
+<p>The following 
+<a href="https://github.com/benbotto/formn-example/blob/master/src/entity/phone-number.entity.ts">PhoneNumber</a>
+object cannot be deleted because:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">id</code> is not defined.</li>
+</ol>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">phone</span> <span class="o">=</span> <span class="p">{</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Conversely, the following passes validation <em>even though <code class="highlighter-rouge">phoneNumber</code> is invalid</em>, becase:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">id</code> is defined and valid.</li>
+</ol>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">phone</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">id</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="na">phoneNumber</span><span class="p">:</span> <span class="s1">'invalid phone number'</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="modelvalidator-the-base-class">ModelValidator (The Base Class)</h3>
+
+<p>This class is mainly used internally by the above validators.  It could be
+useful in certain scenarios, such as making a custom model validator.</p>
+
+<ol>
+  <li>The data type of each value is validated.
+    <ul>
+      <li>For strings, the maximum length is validated.</li>
+    </ul>
+  </li>
+  <li>Values corresponding to non-nullable columns must not be <code class="highlighter-rouge">null</code>.</li>
+  <li>Custom validation rules are applied, such as the <code class="highlighter-rouge">PhoneValidator</code> check
+described above.</li>
+</ol>
+
+<p>The following
+<a href="https://github.com/benbotto/formn-example/blob/master/src/entity/phone-number.entity.ts">PhoneNumber</a>
+object cannot be inserted because:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">personId</code> has an invalid data type (not an integer).</li>
+  <li><code class="highlighter-rouge">type</code> has an invalid data type (not a string).</li>
+</ol>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">phone</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">personId</span><span class="p">:</span> <span class="mf">3.14</span><span class="p">,</span>
+  <span class="na">type</span><span class="p">:</span> <span class="kc">false</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>This
+<a href="https://github.com/benbotto/formn-example/blob/master/src/entity/phone-number.entity.ts">PhoneNumber</a>
+object cannot be updated because:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">phoneNumber</code> is not a valid phone number.</li>
+</ol>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">phone</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">id</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="na">phoneNumber</span><span class="p">:</span> <span class="s1">'bad phone number'</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="full-example">Full Example</h3>
+
+<p>Each of the example objects presented above is taken from the <a href="http://github.com/benbotto/formn-example/blob/master/src/validation">validation
+directory</a>
+of the formn-example repository.  One of the examples,
+<a href="http://github.com/benbotto/formn-example/blob/master/src/validation/insert/generated-column-defined.ts">src/validation/insert/generated-column-defined.ts</a>,
+is shown below.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">InsertModelValidator</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'formn'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">PhoneNumber</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'../../entity/phone-number.entity'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">validator</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">InsertModelValidator</span><span class="p">();</span>
+
+<span class="c1">// "id" cannot be defined because it's generated (an auto-incrementing</span>
+<span class="c1">// primary key).</span>
+<span class="c1">//</span>
+<span class="c1">// "phoneNumber" and "personId" are non-nullable, so they must be defined.</span>
+<span class="kd">const</span> <span class="nx">phone</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">id</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">};</span>
+
+<span class="nx">validator</span>
+  <span class="p">.</span><span class="nx">validate</span><span class="p">(</span><span class="nx">phone</span><span class="p">,</span> <span class="nx">PhoneNumber</span><span class="p">)</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="mi">2</span><span class="p">)));</span>
+</code></pre></div></div>
+
+<p>Run it using <code class="highlighter-rouge">ts-node</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx ts-node src/validation/insert/generated-column-defined.ts
+</code></pre></div></div>
+
+<p>Here’s the output, which is an <code class="highlighter-rouge">Error</code> of type
+<a href="https://github.com/benbotto/bsy-error/blob/master/src/error/ValidationErrorList.ts">ValidationErrorList</a>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "code": "VAL_ERROR_LIST",
+  "name": "ValidationErrorList",
+  "detail": "Validation errors occurred.",
+  "errors": [
+    {
+      "code": "VALIDATION_ERROR",
+      "name": "ValidationError",
+      "detail": "\"id\" must not be defined.",
+      "field": "id"
+    },
+    {
+      "code": "VALIDATION_ERROR",
+      "name": "ValidationError",
+      "detail": "\"phoneNumber\" must be defined.",
+      "field": "phoneNumber"
+    },
+    {
+      "code": "VALIDATION_ERROR",
+      "name": "ValidationError",
+      "detail": "\"personId\" must be defined.",
+      "field": "personId"
+    }
+  ]
+}
+</code></pre></div></div>
 
 
-
-          
-          <hr>
-          <h2 class="text-delta">Table of contents</h2>
-          
-          <ul>
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-              <li>
-                <a href="/doc/formn/5.x.x/doc/creating/insert-a-record.html">Insert a Record</a>
-              </li>
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-          </ul>
           
         </div>
       </div>

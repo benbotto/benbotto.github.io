@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>HasDefaultConverter | formn</title>
+	<title>DeleteModelValidator | formn</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -52,24 +52,34 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="hasdefaultconverter.html">HasDefaultConverter</a>
+					<a href="deletemodelvalidator.html">DeleteModelValidator</a>
 				</li>
 			</ul>
-			<h1>Class HasDefaultConverter</h1>
+			<h1>Class DeleteModelValidator</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>This class is used to validate an object against a class&#39;s validation
+							metadata prior to deletion.  When deleting, the primary key is required to
+							be present and valid, but all other validation is ignored.  Reference
+						<a href="modelvalidator.html">ModelValidator</a> and the bsy-validation package.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="converter.html" class="tsd-signature-type">Converter</a>
+						<a href="modelvalidator.html" class="tsd-signature-type">ModelValidator</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">HasDefaultConverter</span>
+								<span class="target">DeleteModelValidator</span>
 							</li>
 						</ul>
 					</li>
@@ -80,67 +90,144 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="deletemodelvalidator.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-inherited tsd-is-private-protected">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="deletemodelvalidator.html#objectvalidator" class="tsd-kind-icon">object<wbr>Validator</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="hasdefaultconverter.html#onretrieve" class="tsd-kind-icon">on<wbr>Retrieve</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="hasdefaultconverter.html#onsave" class="tsd-kind-icon">on<wbr>Save</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="deletemodelvalidator.html#getvalidationmetadata" class="tsd-kind-icon">get<wbr>Validation<wbr>Metadata</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="deletemodelvalidator.html#validate" class="tsd-kind-icon">validate</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-					<a name="onretrieve" class="tsd-anchor"></a>
-					<h3>on<wbr>Retrieve</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">on<wbr>Retrieve<span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Delete<wbr>Model<wbr>Validator<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="deletemodelvalidator.html" class="tsd-signature-type">DeleteModelValidator</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="converter.html">Converter</a>.<a href="converter.html#onretrieve">onRetrieve</a></p>
+								<p>Overrides <a href="modelvalidator.html">ModelValidator</a>.<a href="modelvalidator.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/b6d39f5/src/modelgenerator/entity/mysql/has-default.converter.ts#L4">modelgenerator/entity/mysql/has-default.converter.ts:4</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>val: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="onsave" class="tsd-anchor"></a>
-					<h3>on<wbr>Save</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">on<wbr>Save<span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="converter.html">Converter</a>.<a href="converter.html#onsave">onSave</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/b6d39f5/src/converter/converter.ts#L16">converter/converter.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/b6d39f5/src/util/validator/delete-model-validator.ts#L16">util/validator/delete-model-validator.ts:16</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Identity converter on save.</p>
+									<p>Initialize the validator.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="deletemodelvalidator.html" class="tsd-signature-type">DeleteModelValidator</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited tsd-is-private-protected">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="objectvalidator" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> object<wbr>Validator</h3>
+					<div class="tsd-signature tsd-kind-icon">object<wbr>Validator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ObjectValidator</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="modelvalidator.html">ModelValidator</a>.<a href="modelvalidator.html#objectvalidator">objectValidator</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/benbotto/formn/blob/b6d39f5/src/util/validator/model-validator.ts#L19">util/validator/model-validator.ts:19</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="getvalidationmetadata" class="tsd-anchor"></a>
+					<h3>get<wbr>Validation<wbr>Metadata</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Validation<wbr>Metadata<span class="tsd-signature-symbol">(</span>Entity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ValidationMetadata</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="modelvalidator.html">ModelValidator</a>.<a href="modelvalidator.html#getvalidationmetadata">getValidationMetadata</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/b6d39f5/src/util/validator/delete-model-validator.ts#L30">util/validator/delete-model-validator.ts:30</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Generate validation metadata (see bsy-validation) for the Entity.  The
+									returned metadata is only for the primary key column(s).</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>val: <span class="tsd-signature-type">any</span></h5>
+									<h5>Entity: <span class="tsd-signature-type">object</span></h5>
+									<ul class="tsd-parameters">
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ValidationMetadata</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<a name="validate" class="tsd-anchor"></a>
+					<h3>validate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">validate<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, Entity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="modelvalidator.html">ModelValidator</a>.<a href="modelvalidator.html#validate">validate</a></p>
+								<p>Overrides ObjectValidator.validate</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/b6d39f5/src/util/validator/model-validator.ts#L34">util/validator/model-validator.ts:34</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Verify that each property of obj meets the requirements defined by
+										<a href="../globals.html#column">Column</a> decoration, such as data type, maximum length, and
+										nullability.  If valid, then check any user-defined validation, such as
+										email and phone number validation.  (Reference the bsy-validation package,
+									as the ObjectValidator class is used for validation.)</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>obj: <span class="tsd-signature-type">object</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The object to validate against class Entity.</p>
+									</div>
+								</li>
+								<li>
+									<h5>Entity: <span class="tsd-signature-type">object</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A class that has properties decorated with @Validate.
+										This is the schema against which obj will be validated.</p>
+									</div>
+									<ul class="tsd-parameters">
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -159,13 +246,19 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="hasdefaultconverter.html" class="tsd-kind-icon">Has<wbr>Default<wbr>Converter</a>
+						<a href="deletemodelvalidator.html" class="tsd-kind-icon">Delete<wbr>Model<wbr>Validator</a>
 						<ul>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="hasdefaultconverter.html#onretrieve" class="tsd-kind-icon">on<wbr>Retrieve</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+								<a href="deletemodelvalidator.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="hasdefaultconverter.html#onsave" class="tsd-kind-icon">on<wbr>Save</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="deletemodelvalidator.html#objectvalidator" class="tsd-kind-icon">object<wbr>Validator</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="deletemodelvalidator.html#getvalidationmetadata" class="tsd-kind-icon">get<wbr>Validation<wbr>Metadata</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="deletemodelvalidator.html#validate" class="tsd-kind-icon">validate</a>
 							</li>
 						</ul>
 					</li>

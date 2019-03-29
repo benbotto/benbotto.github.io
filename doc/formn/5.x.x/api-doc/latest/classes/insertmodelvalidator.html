@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>RelationshipStore | formn</title>
+	<title>InsertModelValidator | formn</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -52,10 +52,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="relationshipstore.html">RelationshipStore</a>
+					<a href="insertmodelvalidator.html">InsertModelValidator</a>
 				</li>
 			</ul>
-			<h1>Class RelationshipStore</h1>
+			<h1>Class InsertModelValidator</h1>
 		</div>
 	</div>
 </header>
@@ -65,7 +65,11 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Stores relationships and provides lookup functions.</p>
+						<p>Specialized validator that&#39;s used to validate objects against a class&#39;s
+							validation schema and column metadata prior to creation.  For example, when
+							inserting a record non-nullable fields must be defined and non-null, and
+							generated fields, like auto-incrementing primary keys, must not be defined.
+						This differs from mutation (updating and deleting).</p>
 					</div>
 				</div>
 			</section>
@@ -73,7 +77,12 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">RelationshipStore</span>
+						<a href="modelvalidator.html" class="tsd-signature-type">ModelValidator</a>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">InsertModelValidator</span>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -82,143 +91,151 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="insertmodelvalidator.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-private-protected">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-protected"><a href="insertmodelvalidator.html#objectvalidator" class="tsd-kind-icon">object<wbr>Validator</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="relationshipstore.html#addrelationshipmetadata" class="tsd-kind-icon">add<wbr>Relationship<wbr>Metadata</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="relationshipstore.html#getrelationship" class="tsd-kind-icon">get<wbr>Relationship</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="relationshipstore.html#getrelationships" class="tsd-kind-icon">get<wbr>Relationships</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="insertmodelvalidator.html#getvalidationmetadata" class="tsd-kind-icon">get<wbr>Validation<wbr>Metadata</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="insertmodelvalidator.html#validate" class="tsd-kind-icon">validate</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Insert<wbr>Model<wbr>Validator<span class="tsd-signature-symbol">(</span>objectValidator<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ObjectValidator</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="insertmodelvalidator.html" class="tsd-signature-type">InsertModelValidator</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="modelvalidator.html">ModelValidator</a>.<a href="modelvalidator.html#constructor">constructor</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/b6d39f5/src/util/validator/insert-model-validator.ts#L17">util/validator/insert-model-validator.ts:17</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Initialize with a <a href="modelvalidator.html">ModelValidator</a> instance.  The <a href="modelvalidator.html">ModelValidator</a>
+										handles the majority of the validation, while this class is concerned with
+									verifying the presence of non-nullable columns.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> objectValidator: <span class="tsd-signature-type">ObjectValidator</span><span class="tsd-signature-symbol"> =&nbsp;new ModelValidator()</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="insertmodelvalidator.html" class="tsd-signature-type">InsertModelValidator</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
+					<a name="objectvalidator" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> object<wbr>Validator</h3>
+					<div class="tsd-signature tsd-kind-icon">object<wbr>Validator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ObjectValidator</span></div>
+					<aside class="tsd-sources">
+						<p>Overrides <a href="modelvalidator.html">ModelValidator</a>.<a href="modelvalidator.html#objectvalidator">objectValidator</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/benbotto/formn/blob/b6d39f5/src/util/validator/insert-model-validator.ts#L24">util/validator/insert-model-validator.ts:24</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="addrelationshipmetadata" class="tsd-anchor"></a>
-					<h3>add<wbr>Relationship<wbr>Metadata</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">add<wbr>Relationship<wbr>Metadata<span class="tsd-signature-symbol">(</span>rel<span class="tsd-signature-symbol">: </span><a href="relationshipmetadata.html" class="tsd-signature-type">RelationshipMetadata</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="getvalidationmetadata" class="tsd-anchor"></a>
+					<h3>get<wbr>Validation<wbr>Metadata</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Validation<wbr>Metadata<span class="tsd-signature-symbol">(</span>Entity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ValidationMetadata</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Overrides <a href="modelvalidator.html">ModelValidator</a>.<a href="modelvalidator.html#getvalidationmetadata">getValidationMetadata</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/b6d39f5/src/metadata/relationship/relationship-store.ts#L12">metadata/relationship/relationship-store.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/b6d39f5/src/util/validator/insert-model-validator.ts#L32">util/validator/insert-model-validator.ts:32</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Add a relationship.</p>
+									<p>Generate validation metadata (see bsy-validation) for the Entity.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>rel: <a href="relationshipmetadata.html" class="tsd-signature-type">RelationshipMetadata</a></h5>
+									<h5>Entity: <span class="tsd-signature-type">object</span></h5>
+									<ul class="tsd-parameters">
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ValidationMetadata</span><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getrelationship" class="tsd-anchor"></a>
-					<h3>get<wbr>Relationship</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Relationship<span class="tsd-signature-symbol">(</span>Entity1<span class="tsd-signature-symbol">: </span><a href="../globals.html#tabletype" class="tsd-signature-type">TableType</a>, Entity2<span class="tsd-signature-symbol">: </span><a href="../globals.html#tabletype" class="tsd-signature-type">TableType</a>, mapTo<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="relationshipmetadata.html" class="tsd-signature-type">RelationshipMetadata</a></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<a name="validate" class="tsd-anchor"></a>
+					<h3>validate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">validate<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, Entity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="modelvalidator.html">ModelValidator</a>.<a href="modelvalidator.html#validate">validate</a></p>
+								<p>Overrides ObjectValidator.validate</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/b6d39f5/src/metadata/relationship/relationship-store.ts#L65">metadata/relationship/relationship-store.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/b6d39f5/src/util/validator/model-validator.ts#L34">util/validator/model-validator.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get the relationship between two tables on a property.  Short-hand for
-										getRelationships with oneWay=true, but throws if the relationship does not
-									exist.</p>
+									<p>Verify that each property of obj meets the requirements defined by
+										<a href="../globals.html#column">Column</a> decoration, such as data type, maximum length, and
+										nullability.  If valid, then check any user-defined validation, such as
+										email and phone number validation.  (Reference the bsy-validation package,
+									as the ObjectValidator class is used for validation.)</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>Entity1: <a href="../globals.html#tabletype" class="tsd-signature-type">TableType</a></h5>
+									<h5>obj: <span class="tsd-signature-type">object</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The first Entity (constructor), i.e. the class that&#39;s
-										decorated with @<a href="../globals.html#table">Table</a>.</p>
+										<p>The object to validate against class Entity.</p>
 									</div>
 								</li>
 								<li>
-									<h5>Entity2: <a href="../globals.html#tabletype" class="tsd-signature-type">TableType</a></h5>
+									<h5>Entity: <span class="tsd-signature-type">object</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The second Entity.</p>
+										<p>A class that has properties decorated with @Validate.
+										This is the schema against which obj will be validated.</p>
 									</div>
-								</li>
-								<li>
-									<h5>mapTo: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The proeprty on Entity1 where the relationship is defined.</p>
-									</div>
+									<ul class="tsd-parameters">
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="relationshipmetadata.html" class="tsd-signature-type">RelationshipMetadata</a></h4>
-							<p>The RelationshipMetadata for the relationship.</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getrelationships" class="tsd-anchor"></a>
-					<h3>get<wbr>Relationships</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Relationships<span class="tsd-signature-symbol">(</span>Entity1<span class="tsd-signature-symbol">: </span><a href="../globals.html#tabletype" class="tsd-signature-type">TableType</a>, Entity2<span class="tsd-signature-symbol">: </span><a href="../globals.html#tabletype" class="tsd-signature-type">TableType</a>, oneWay<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, mapTo<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="relationshipmetadata.html" class="tsd-signature-type">RelationshipMetadata</a><span class="tsd-signature-symbol">[]</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/b6d39f5/src/metadata/relationship/relationship-store.ts#L29">metadata/relationship/relationship-store.ts:29</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get all of the relationships between two tables.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>Entity1: <a href="../globals.html#tabletype" class="tsd-signature-type">TableType</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The first Entity (constructor), i.e. the class that&#39;s
-										decorated with @<a href="../globals.html#table">Table</a>.</p>
-									</div>
-								</li>
-								<li>
-									<h5>Entity2: <a href="../globals.html#tabletype" class="tsd-signature-type">TableType</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The second Entity.</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> oneWay: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>When true, only return the relationships between Entity1
-										and Entity2 that Entity1 owns.</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> mapTo: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>An optional property on Entity1.  If passed, return the
-										relationship for this property only (implies oneWay).</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="relationshipmetadata.html" class="tsd-signature-type">RelationshipMetadata</a><span class="tsd-signature-symbol">[]</span></h4>
-							<p>An array of RelationshipMetadata instances.</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -237,16 +254,19 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="relationshipstore.html" class="tsd-kind-icon">Relationship<wbr>Store</a>
+						<a href="insertmodelvalidator.html" class="tsd-kind-icon">Insert<wbr>Model<wbr>Validator</a>
 						<ul>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="relationshipstore.html#addrelationshipmetadata" class="tsd-kind-icon">add<wbr>Relationship<wbr>Metadata</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+								<a href="insertmodelvalidator.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="relationshipstore.html#getrelationship" class="tsd-kind-icon">get<wbr>Relationship</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
+								<a href="insertmodelvalidator.html#objectvalidator" class="tsd-kind-icon">object<wbr>Validator</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="relationshipstore.html#getrelationships" class="tsd-kind-icon">get<wbr>Relationships</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="insertmodelvalidator.html#getvalidationmetadata" class="tsd-kind-icon">get<wbr>Validation<wbr>Metadata</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="insertmodelvalidator.html#validate" class="tsd-kind-icon">validate</a>
 							</li>
 						</ul>
 					</li>

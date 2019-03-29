@@ -68,6 +68,118 @@
 				<p>Check out the
 					<a href="https://benbotto.github.io/doc/formn/5.x.x/">documentation</a>.  It
 				has a getting started guide, tutorials, and more.</p>
+				<h3 id="what-does-it-do-">What does it do?</h3>
+				<p>It takes queries that look like this:</p>
+				<pre><code class="language-sql"><span class="hljs-keyword">SELECT</span>  p.personID, p.firstName, p.lastName,
+        pn.phoneNumberID, pn.phoneNumber
+<span class="hljs-keyword">FROM</span>    people p
+<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> phone_numbers pn <span class="hljs-keyword">ON</span> p.personID = pn.personID
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> p.firstName, p.lastName</code></pre>
+				<p>and makes them look like this:</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> query: Select&lt;Person&gt; = dataContext
+  .from(Person, <span class="hljs-string">'p'</span>)
+  .innerJoin(PhoneNumber, <span class="hljs-string">'pn'</span>, <span class="hljs-string">'p.phoneNumbers'</span>)
+  .select(
+    <span class="hljs-string">'p.id'</span>, <span class="hljs-string">'p.firstName'</span>, <span class="hljs-string">'p.lastName'</span>,
+    <span class="hljs-string">'pn.id'</span>, <span class="hljs-string">'pn.phoneNumber'</span>)
+  .orderBy(<span class="hljs-string">'p.firstName'</span>, <span class="hljs-string">'p.lastName'</span>)
+
+<span class="hljs-keyword">const</span> people: Person[] = <span class="hljs-keyword">await</span> query
+  .execute();</code></pre>
+				<p>It maps tabular, relational data that look like this:</p>
+				<table>
+					<thead>
+						<tr>
+							<th>personID</th>
+							<th>firstName</th>
+							<th>lastName</th>
+							<th>phoneNumberID</th>
+							<th>phoneNumber</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td>1</td>
+							<td>Joe</td>
+							<td>Shmo</td>
+							<td>1</td>
+							<td>530-307-8810</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>Joe</td>
+							<td>Shmo</td>
+							<td>2</td>
+							<td>916-200-1440</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>Joe</td>
+							<td>Shmo</td>
+							<td>3</td>
+							<td>916-293-4667</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Rand</td>
+							<td>AlThore</td>
+							<td>4</td>
+							<td>666-451-4412</td>
+						</tr>
+				</tbody></table>
+				<p>to normalized entities that look like this:</p>
+				<pre><code class="language-javascript">[
+  Person {
+    <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">firstName</span>: <span class="hljs-string">'Joe'</span>,
+    <span class="hljs-attr">lastName</span>: <span class="hljs-string">'Shmo'</span>,
+    <span class="hljs-attr">phoneNumbers</span>: [
+      PhoneNumber {
+        <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">phoneNumber</span>: <span class="hljs-string">'530-307-8810'</span>
+      },
+      PhoneNumber {
+        <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">phoneNumber</span>: <span class="hljs-string">'916-200-1440'</span>
+      },
+      PhoneNumber {
+        <span class="hljs-attr">id</span>: <span class="hljs-number">3</span>,
+        <span class="hljs-attr">phoneNumber</span>: <span class="hljs-string">'916-293-4667'</span>
+      }
+    ]
+  },
+  Person {
+    <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-attr">firstName</span>: <span class="hljs-string">'Rand'</span>,
+    <span class="hljs-attr">lastName</span>: <span class="hljs-string">'AlThore'</span>,
+    <span class="hljs-attr">phoneNumbers</span>: [
+      PhoneNumber {
+        <span class="hljs-attr">id</span>: <span class="hljs-number">4</span>,
+        <span class="hljs-attr">phoneNumber</span>: <span class="hljs-string">'666-451-4412'</span>
+      }
+    ]
+  }
+]</code></pre>
+				<h3 id="why-should-i-use-it-">Why should I use it?</h3>
+				<ul>
+					<li>It&#39;s fast.</li>
+					<li>The code is well documented and thoroughly tested.</li>
+					<li>Tutorials and documentation help you to get started quickly.</li>
+					<li>It&#39;s database first rather than entity first, so it works well with existing
+					projects and databases.</li>
+					<li>There&#39;s a built-in model generator to generate entity classes from a
+					database.</li>
+					<li>The query interface is intuitive and closely resembles SQL.</li>
+					<li>It&#39;s type safe.</li>
+					<li>Security concerns like SQL injection are covered.</li>
+					<li>CRUD operations can be reused.  One complex query with joins and filters can
+					be used to select, update, and delete in a similar manner to SQL views.</li>
+					<li>It lets you easily create queries that can be filtered and ordered
+					dynamically.</li>
+					<li>There are hooks for global conversions and transformations, like normalizing
+					dates and formatting phone numbers.</li>
+				</ul>
+				<p>Check out the
+				<a href="https://benbotto.github.io/doc/formn/5.x.x/">docs</a>!</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -141,6 +253,9 @@
 						<a href="classes/deletemodel.html" class="tsd-kind-icon">Delete<wbr>Model</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/deletemodelvalidator.html" class="tsd-kind-icon">Delete<wbr>Model<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/escaper.html" class="tsd-kind-icon">Escaper</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -168,6 +283,9 @@
 						<a href="classes/insert.html" class="tsd-kind-icon">Insert</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/insertmodelvalidator.html" class="tsd-kind-icon">Insert<wbr>Model<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/isgeneratedconverter.html" class="tsd-kind-icon">Is<wbr>Generated<wbr>Converter</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -190,6 +308,9 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/modeltable.html" class="tsd-kind-icon">Model<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/modelvalidator.html" class="tsd-kind-icon">Model<wbr>Validator</a>
 					</li>
 					<li class=" tsd-kind-class tsd-has-type-parameter">
 						<a href="classes/mutatemodel.html" class="tsd-kind-icon">Mutate<wbr>Model</a>
@@ -289,6 +410,9 @@
 					</li>
 					<li class=" tsd-kind-class tsd-has-type-parameter">
 						<a href="classes/updatemodel.html" class="tsd-kind-icon">Update<wbr>Model</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/updatemodelvalidator.html" class="tsd-kind-icon">Update<wbr>Model<wbr>Validator</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/yesnoconverter.html" class="tsd-kind-icon">Yes<wbr>NoConverter</a>
