@@ -104,7 +104,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/b6d39f5/src/metadata/relationship/relationship-store.ts#L12">metadata/relationship/relationship-store.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/424597e/src/metadata/relationship/relationship-store.ts#L12">metadata/relationship/relationship-store.ts:12</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -132,7 +132,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/b6d39f5/src/metadata/relationship/relationship-store.ts#L65">metadata/relationship/relationship-store.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/424597e/src/metadata/relationship/relationship-store.ts#L66">metadata/relationship/relationship-store.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -173,18 +173,18 @@
 					<a name="getrelationships" class="tsd-anchor"></a>
 					<h3>get<wbr>Relationships</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Relationships<span class="tsd-signature-symbol">(</span>Entity1<span class="tsd-signature-symbol">: </span><a href="../globals.html#tabletype" class="tsd-signature-type">TableType</a>, Entity2<span class="tsd-signature-symbol">: </span><a href="../globals.html#tabletype" class="tsd-signature-type">TableType</a>, oneWay<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, mapTo<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="relationshipmetadata.html" class="tsd-signature-type">RelationshipMetadata</a><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Relationships<span class="tsd-signature-symbol">(</span>Entity1<span class="tsd-signature-symbol">: </span><a href="../globals.html#tabletype" class="tsd-signature-type">TableType</a>, Entity2<span class="tsd-signature-symbol">?: </span><a href="../globals.html#tabletype" class="tsd-signature-type">TableType</a>, oneWay<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, mapTo<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="relationshipmetadata.html" class="tsd-signature-type">RelationshipMetadata</a><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/b6d39f5/src/metadata/relationship/relationship-store.ts#L29">metadata/relationship/relationship-store.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/424597e/src/metadata/relationship/relationship-store.ts#L29">metadata/relationship/relationship-store.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get all of the relationships between two tables.</p>
+									<p>Get all of the relationships between two tables, or for a single table.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -197,7 +197,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>Entity2: <a href="../globals.html#tabletype" class="tsd-signature-type">TableType</a></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> Entity2: <a href="../globals.html#tabletype" class="tsd-signature-type">TableType</a><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The second Entity.</p>
 									</div>
@@ -205,8 +205,8 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> oneWay: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>When true, only return the relationships between Entity1
-										and Entity2 that Entity1 owns.</p>
+										<p>When true, only return the relationships that Entity1
+										owns.</p>
 									</div>
 								</li>
 								<li>
