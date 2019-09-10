@@ -92,6 +92,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="conditionbuilder.html#gt" class="tsd-kind-icon">gt</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="conditionbuilder.html#gte" class="tsd-kind-icon">gte</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="conditionbuilder.html#in" class="tsd-kind-icon">in</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="conditionbuilder.html#incomp" class="tsd-kind-icon">in<wbr>Comp</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="conditionbuilder.html#isnotnull" class="tsd-kind-icon">is<wbr>Not<wbr>Null</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="conditionbuilder.html#isnull" class="tsd-kind-icon">is<wbr>Null</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="conditionbuilder.html#like" class="tsd-kind-icon">like</a></li>
@@ -118,7 +119,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/4734ab2/src/query/condition/condition-builder.ts#L61">query/condition/condition-builder.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/6f74643/src/query/condition/condition-builder.ts#L107">query/condition/condition-builder.ts:107</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -155,7 +156,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/4734ab2/src/query/condition/condition-builder.ts#L171">query/condition/condition-builder.ts:171</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/6f74643/src/query/condition/condition-builder.ts#L217">query/condition/condition-builder.ts:217</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -184,7 +185,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/4734ab2/src/query/condition/condition-builder.ts#L20">query/condition/condition-builder.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/6f74643/src/query/condition/condition-builder.ts#L20">query/condition/condition-builder.ts:20</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -198,7 +199,7 @@
 									<h5>op: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The comparison operator, as a string: $eq, $neq, $lt,
-										$lte, $gt, $gte, $like, or $notLike.</p>
+										$lte, $gt, $gte, $like, $notLike, $is, $isnt.</p>
 									</div>
 								</li>
 								<li>
@@ -236,7 +237,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/4734ab2/src/query/condition/condition-builder.ts#L86">query/condition/condition-builder.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/6f74643/src/query/condition/condition-builder.ts#L132">query/condition/condition-builder.ts:132</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -270,7 +271,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/4734ab2/src/query/condition/condition-builder.ts#L114">query/condition/condition-builder.ts:114</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/6f74643/src/query/condition/condition-builder.ts#L160">query/condition/condition-builder.ts:160</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -304,7 +305,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/4734ab2/src/query/condition/condition-builder.ts#L121">query/condition/condition-builder.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/6f74643/src/query/condition/condition-builder.ts#L167">query/condition/condition-builder.ts:167</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -332,18 +333,18 @@
 					<a name="in" class="tsd-anchor"></a>
 					<h3>in</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">in<span class="tsd-signature-symbol">(</span>prop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, propOrParamName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, param<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="parameterizedcondition.html" class="tsd-signature-type">ParameterizedCondition</a></li>
+						<li class="tsd-signature tsd-kind-icon">in<span class="tsd-signature-symbol">(</span>prop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, propsOrParamBaseName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, param<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="parameterizedcondition.html" class="tsd-signature-type">ParameterizedCondition</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/4734ab2/src/query/condition/condition-builder.ts#L142">query/condition/condition-builder.ts:142</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/6f74643/src/query/condition/condition-builder.ts#L188">query/condition/condition-builder.ts:188</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>In comparison.  See <a href="conditionbuilder.html#comp">ConditionBuilder.comp</a>.</p>
+									<p>In comparison.  See <a href="conditionbuilder.html#incomp">ConditionBuilder.inComp</a>.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -352,10 +353,65 @@
 									<h5>prop: <span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
-									<h5>propOrParamName: <span class="tsd-signature-type">string</span></h5>
+									<h5>propsOrParamBaseName: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> param: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="parameterizedcondition.html" class="tsd-signature-type">ParameterizedCondition</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="incomp" class="tsd-anchor"></a>
+					<h3>in<wbr>Comp</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">in<wbr>Comp<span class="tsd-signature-symbol">(</span>op<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, prop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, propsOrParamBaseName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, params<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="parameterizedcondition.html" class="tsd-signature-type">ParameterizedCondition</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/6f74643/src/query/condition/condition-builder.ts#L59">query/condition/condition-builder.ts:59</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>A IN (IN or NOT IN) comparison operation.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>op: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The comparison operator, as a string: $in, $notIn.</p>
+									</div>
+								</li>
+								<li>
+									<h5>prop: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The name of a fully-qualified property in a query in the form
+										&lt;table-alias&gt;.&lt;property&gt;.</p>
+									</div>
+								</li>
+								<li>
+									<h5>propsOrParamBaseName: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Either a fully-qualified property, or a
+											parameter name preceded by a colon (e.g. :someParameter).  If a parameter
+											name is provided, it&#39;s used a base name.  Each property is parameterized,
+											and the parameter names are suffixed with _# (e.g. :param_0, :param_1,
+										..., :param_n).</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> params: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An array of replacement values if propOrParamName is a
+										parameter name.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="parameterizedcondition.html" class="tsd-signature-type">ParameterizedCondition</a></h4>
@@ -372,7 +428,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/4734ab2/src/query/condition/condition-builder.ts#L163">query/condition/condition-builder.ts:163</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/6f74643/src/query/condition/condition-builder.ts#L209">query/condition/condition-builder.ts:209</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -400,7 +456,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/4734ab2/src/query/condition/condition-builder.ts#L156">query/condition/condition-builder.ts:156</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/6f74643/src/query/condition/condition-builder.ts#L202">query/condition/condition-builder.ts:202</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -428,7 +484,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/4734ab2/src/query/condition/condition-builder.ts#L128">query/condition/condition-builder.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/6f74643/src/query/condition/condition-builder.ts#L174">query/condition/condition-builder.ts:174</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -462,7 +518,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/4734ab2/src/query/condition/condition-builder.ts#L100">query/condition/condition-builder.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/6f74643/src/query/condition/condition-builder.ts#L146">query/condition/condition-builder.ts:146</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -496,7 +552,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/4734ab2/src/query/condition/condition-builder.ts#L107">query/condition/condition-builder.ts:107</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/6f74643/src/query/condition/condition-builder.ts#L153">query/condition/condition-builder.ts:153</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -530,7 +586,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/4734ab2/src/query/condition/condition-builder.ts#L93">query/condition/condition-builder.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/6f74643/src/query/condition/condition-builder.ts#L139">query/condition/condition-builder.ts:139</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -558,18 +614,18 @@
 					<a name="notin" class="tsd-anchor"></a>
 					<h3>not<wbr>In</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">not<wbr>In<span class="tsd-signature-symbol">(</span>prop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, propOrParamName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, param<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="parameterizedcondition.html" class="tsd-signature-type">ParameterizedCondition</a></li>
+						<li class="tsd-signature tsd-kind-icon">not<wbr>In<span class="tsd-signature-symbol">(</span>prop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, propsOrParamBaseName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, param<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="parameterizedcondition.html" class="tsd-signature-type">ParameterizedCondition</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/4734ab2/src/query/condition/condition-builder.ts#L149">query/condition/condition-builder.ts:149</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/6f74643/src/query/condition/condition-builder.ts#L195">query/condition/condition-builder.ts:195</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Not in comparison.  See <a href="conditionbuilder.html#comp">ConditionBuilder.comp</a>.</p>
+									<p>Not in comparison.  See <a href="conditionbuilder.html#incomp">ConditionBuilder.inComp</a>.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -578,7 +634,7 @@
 									<h5>prop: <span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
-									<h5>propOrParamName: <span class="tsd-signature-type">string</span></h5>
+									<h5>propsOrParamBaseName: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> param: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
@@ -598,7 +654,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/4734ab2/src/query/condition/condition-builder.ts#L135">query/condition/condition-builder.ts:135</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/6f74643/src/query/condition/condition-builder.ts#L181">query/condition/condition-builder.ts:181</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -632,7 +688,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/4734ab2/src/query/condition/condition-builder.ts#L179">query/condition/condition-builder.ts:179</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/6f74643/src/query/condition/condition-builder.ts#L225">query/condition/condition-builder.ts:225</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -690,6 +746,9 @@
 								<a href="conditionbuilder.html#in" class="tsd-kind-icon">in</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="conditionbuilder.html#incomp" class="tsd-kind-icon">in<wbr>Comp</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="conditionbuilder.html#isnotnull" class="tsd-kind-icon">is<wbr>Not<wbr>Null</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -737,6 +796,7 @@
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -785,7 +845,7 @@
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
