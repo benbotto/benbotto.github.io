@@ -90,6 +90,9 @@
 							<li>
 								<a href="update.html" class="tsd-signature-type">Update</a>
 							</li>
+							<li>
+								<a href="count.html" class="tsd-signature-type">Count</a>
+							</li>
 						</ul>
 					</li>
 				</ul>
@@ -99,23 +102,6 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Constructors</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="query.html#constructor" class="tsd-kind-icon">constructor</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section tsd-is-private-protected">
-							<h3>Properties</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="query.html#colstore" class="tsd-kind-icon">col<wbr>Store</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="query.html#escaper" class="tsd-kind-icon">escaper</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="query.html#executer" class="tsd-kind-icon">executer</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="query.html#propstore" class="tsd-kind-icon">prop<wbr>Store</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="query.html#relstore" class="tsd-kind-icon">rel<wbr>Store</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="query.html#tblstore" class="tsd-kind-icon">tbl<wbr>Store</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="query.html#buildquery" class="tsd-kind-icon">build<wbr>Query</a></li>
@@ -123,183 +109,6 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="query.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
 							</ul>
 						</section>
-					</div>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
-					<a name="constructor" class="tsd-anchor"></a>
-					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Query<span class="tsd-signature-symbol">(</span>colStore<span class="tsd-signature-symbol">: </span><a href="columnstore.html" class="tsd-signature-type">ColumnStore</a>, tblStore<span class="tsd-signature-symbol">: </span><a href="tablestore.html" class="tsd-signature-type">TableStore</a>, relStore<span class="tsd-signature-symbol">: </span><a href="relationshipstore.html" class="tsd-signature-type">RelationshipStore</a>, propStore<span class="tsd-signature-symbol">: </span><a href="propertymapstore.html" class="tsd-signature-type">PropertyMapStore</a>, escaper<span class="tsd-signature-symbol">: </span><a href="escaper.html" class="tsd-signature-type">Escaper</a>, executer<span class="tsd-signature-symbol">: </span><a href="../interfaces/executer.html" class="tsd-signature-type">Executer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="query.html" class="tsd-signature-type">Query</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/f61e7dc/src/query/query.ts#L8">query/query.ts:8</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Initialize the query.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>colStore: <a href="columnstore.html" class="tsd-signature-type">ColumnStore</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>Used for accessing columns in tables.</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<h5>tblStore: <a href="tablestore.html" class="tsd-signature-type">TableStore</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>Used for accessing tables in the database.</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<h5>relStore: <a href="relationshipstore.html" class="tsd-signature-type">RelationshipStore</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>Used for accessing relationships between tables.</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<h5>propStore: <a href="propertymapstore.html" class="tsd-signature-type">PropertyMapStore</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>Used for pulling table property maps (used in
-											conjunction with the relStore to get remote columns).</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<h5>escaper: <a href="escaper.html" class="tsd-signature-type">Escaper</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>An <a href="escaper.html">Escaper</a> matching the database type (e.g.
-												<a href="mysqlescaper.html">MySQLEscaper</a> or <a href="mssqlescaper.html">MSSQLEscaper</a>).  Used when escaping column names in
-											compiled conditions.</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<h5>executer: <a href="../interfaces/executer.html" class="tsd-signature-type">Executer</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>An Executer instance that matches the database type
-											(e.g. <a href="mysqlexecuter.html">MySQLExecuter</a>).</p>
-										</div>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="query.html" class="tsd-signature-type">Query</a></h4>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-					<a name="colstore" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> col<wbr>Store</h3>
-					<div class="tsd-signature tsd-kind-icon">col<wbr>Store<span class="tsd-signature-symbol">:</span> <a href="columnstore.html" class="tsd-signature-type">ColumnStore</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/benbotto/formn/blob/f61e7dc/src/query/query.ts#L23">query/query.ts:23</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Used for accessing columns in tables.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-					<a name="escaper" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> escaper</h3>
-					<div class="tsd-signature tsd-kind-icon">escaper<span class="tsd-signature-symbol">:</span> <a href="escaper.html" class="tsd-signature-type">Escaper</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/benbotto/formn/blob/f61e7dc/src/query/query.ts#L27">query/query.ts:27</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>An <a href="escaper.html">Escaper</a> matching the database type (e.g.
-								<a href="mysqlescaper.html">MySQLEscaper</a> or <a href="mssqlescaper.html">MSSQLEscaper</a>).  Used when escaping column names in
-							compiled conditions.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-					<a name="executer" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> executer</h3>
-					<div class="tsd-signature tsd-kind-icon">executer<span class="tsd-signature-symbol">:</span> <a href="../interfaces/executer.html" class="tsd-signature-type">Executer</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/benbotto/formn/blob/f61e7dc/src/query/query.ts#L28">query/query.ts:28</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>An Executer instance that matches the database type
-							(e.g. <a href="mysqlexecuter.html">MySQLExecuter</a>).</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-					<a name="propstore" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> prop<wbr>Store</h3>
-					<div class="tsd-signature tsd-kind-icon">prop<wbr>Store<span class="tsd-signature-symbol">:</span> <a href="propertymapstore.html" class="tsd-signature-type">PropertyMapStore</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/benbotto/formn/blob/f61e7dc/src/query/query.ts#L26">query/query.ts:26</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Used for pulling table property maps (used in
-							conjunction with the relStore to get remote columns).</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-					<a name="relstore" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> rel<wbr>Store</h3>
-					<div class="tsd-signature tsd-kind-icon">rel<wbr>Store<span class="tsd-signature-symbol">:</span> <a href="relationshipstore.html" class="tsd-signature-type">RelationshipStore</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/benbotto/formn/blob/f61e7dc/src/query/query.ts#L25">query/query.ts:25</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Used for accessing relationships between tables.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-					<a name="tblstore" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> tbl<wbr>Store</h3>
-					<div class="tsd-signature tsd-kind-icon">tbl<wbr>Store<span class="tsd-signature-symbol">:</span> <a href="tablestore.html" class="tsd-signature-type">TableStore</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/benbotto/formn/blob/f61e7dc/src/query/query.ts#L24">query/query.ts:24</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Used for accessing tables in the database.</p>
-						</div>
 					</div>
 				</section>
 			</section>
@@ -315,7 +124,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/f61e7dc/src/query/query.ts#L41">query/query.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/query.ts#L19">query/query.ts:19</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -338,7 +147,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/f61e7dc/src/query/query.ts#L47">query/query.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/query.ts#L25">query/query.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -369,7 +178,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/f61e7dc/src/query/query.ts#L35">query/query.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/query.ts#L13">query/query.ts:13</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -399,27 +208,6 @@
 					<li class="current tsd-kind-class">
 						<a href="query.html" class="tsd-kind-icon">Query</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="query.html#constructor" class="tsd-kind-icon">constructor</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="query.html#colstore" class="tsd-kind-icon">col<wbr>Store</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="query.html#escaper" class="tsd-kind-icon">escaper</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="query.html#executer" class="tsd-kind-icon">executer</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="query.html#propstore" class="tsd-kind-icon">prop<wbr>Store</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="query.html#relstore" class="tsd-kind-icon">rel<wbr>Store</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="query.html#tblstore" class="tsd-kind-icon">tbl<wbr>Store</a>
-							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="query.html#buildquery" class="tsd-kind-icon">build<wbr>Query</a>
 							</li>

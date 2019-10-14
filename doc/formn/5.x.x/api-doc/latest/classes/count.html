@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>MySQLUpdate | formn</title>
+	<title>Count | formn</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -52,10 +52,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="mysqlupdate.html">MySQLUpdate</a>
+					<a href="count.html">Count</a>
 				</li>
 			</ul>
-			<h1>Class MySQLUpdate</h1>
+			<h1>Class Count</h1>
 		</div>
 	</div>
 </header>
@@ -65,7 +65,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>A <a href="query.html">Query</a> that represents an UPDATE for a MySQL database.</p>
+						<p>Represents a count query (SELECT COUNT(*)).</p>
 					</div>
 				</div>
 			</section>
@@ -73,10 +73,10 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="update.html" class="tsd-signature-type">Update</a>
+						<a href="query.html" class="tsd-signature-type">Query</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">MySQLUpdate</span>
+								<span class="target">Count</span>
 							</li>
 						</ul>
 					</li>
@@ -89,27 +89,27 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="mysqlupdate.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="count.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="mysqlupdate.html#escaper" class="tsd-kind-icon">escaper</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-protected"><a href="mysqlupdate.html#executer" class="tsd-kind-icon">executer</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-protected"><a href="mysqlupdate.html#from" class="tsd-kind-icon">from</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-protected"><a href="mysqlupdate.html#model" class="tsd-kind-icon">model</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="mysqlupdate.html#paramlist" class="tsd-kind-icon">param<wbr>List</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="mysqlupdate.html#paramlookup" class="tsd-kind-icon">param<wbr>Lookup</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="mysqlupdate.html#updatecols" class="tsd-kind-icon">update<wbr>Cols</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="count.html#countcol" class="tsd-kind-icon">count<wbr>Col</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="count.html#escaper" class="tsd-kind-icon">escaper</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="count.html#executer" class="tsd-kind-icon">executer</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="count.html#from" class="tsd-kind-icon">from</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="count.html#order" class="tsd-kind-icon">order</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="mysqlupdate.html#buildquery" class="tsd-kind-icon">build<wbr>Query</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="mysqlupdate.html#execute" class="tsd-kind-icon">execute</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="mysqlupdate.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="count.html#buildquery" class="tsd-kind-icon">build<wbr>Query</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="count.html#count-1" class="tsd-kind-icon">count</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="count.html#execute" class="tsd-kind-icon">execute</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="count.html#orderby" class="tsd-kind-icon">order<wbr>By</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="count.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
 							</ul>
 						</section>
 					</div>
@@ -117,18 +117,17 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>MySQLUpdate<span class="tsd-signature-symbol">(</span>escaper<span class="tsd-signature-symbol">: </span><a href="mysqlescaper.html" class="tsd-signature-type">MySQLEscaper</a>, executer<span class="tsd-signature-symbol">: </span><a href="mysqlexecuter.html" class="tsd-signature-type">MySQLExecuter</a>, from<span class="tsd-signature-symbol">: </span><a href="from.html" class="tsd-signature-type">From</a>, model<span class="tsd-signature-symbol">: </span><a href="../globals.html#updatetype" class="tsd-signature-type">UpdateType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="mysqlupdate.html" class="tsd-signature-type">MySQLUpdate</a></li>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Count<span class="tsd-signature-symbol">(</span>escaper<span class="tsd-signature-symbol">: </span><a href="escaper.html" class="tsd-signature-type">Escaper</a>, executer<span class="tsd-signature-symbol">: </span><a href="../interfaces/executer.html" class="tsd-signature-type">Executer</a>, from<span class="tsd-signature-symbol">: </span><a href="from.html" class="tsd-signature-type">From</a>, order<span class="tsd-signature-symbol">: </span><a href="orderby.html" class="tsd-signature-type">OrderBy</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="count.html" class="tsd-signature-type">Count</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="update.html">Update</a>.<a href="update.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/update/mysql-update.ts#L11">query/update/mysql-update.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/count/count.ts#L13">query/count/count.ts:13</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -139,19 +138,21 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>escaper: <a href="mysqlescaper.html" class="tsd-signature-type">MySQLEscaper</a></h5>
+									<h5>escaper: <a href="escaper.html" class="tsd-signature-type">Escaper</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>An <a href="escaper.html">Escaper</a> for MySQL.  Used when escaping column
-											names.</p>
+											<p>An <a href="escaper.html">Escaper</a> matching the database type (e.g.
+												<a href="mysqlescaper.html">MySQLEscaper</a> or <a href="mssqlescaper.html">MSSQLEscaper</a>).  Used when escaping column names in
+											compiled conditions.</p>
 										</div>
 									</div>
 								</li>
 								<li>
-									<h5>executer: <a href="mysqlexecuter.html" class="tsd-signature-type">MySQLExecuter</a></h5>
+									<h5>executer: <a href="../interfaces/executer.html" class="tsd-signature-type">Executer</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>An <a href="../interfaces/executer.html">Executer</a> instance for MySQL.</p>
+											<p>An <a href="../interfaces/executer.html">Executer</a> instance that matches the database type
+											(e.g. <a href="mysqlexecuter.html">MySQLExecuter</a>).</p>
 										</div>
 									</div>
 								</li>
@@ -165,18 +166,16 @@
 									</div>
 								</li>
 								<li>
-									<h5>model: <a href="../globals.html#updatetype" class="tsd-signature-type">UpdateType</a></h5>
+									<h5>order: <a href="orderby.html" class="tsd-signature-type">OrderBy</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>An object containing key-value pairs.  Each key must
-												correspond to a fully-qualified property
-												(&lt;table-alias&gt;.&lt;property&gt;), and each associated value is the
-											value to update in the database.</p>
+											<p>An <a href="orderby.html">OrderBy</a> instance which is optionally used to order
+											the query results.</p>
 										</div>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="mysqlupdate.html" class="tsd-signature-type">MySQLUpdate</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="count.html" class="tsd-signature-type">Count</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -184,45 +183,55 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="countcol" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> count<wbr>Col</h3>
+					<div class="tsd-signature tsd-kind-icon">count<wbr>Col<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/count/count.ts#L13">query/count/count.ts:13</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 					<a name="escaper" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> escaper</h3>
-					<div class="tsd-signature tsd-kind-icon">escaper<span class="tsd-signature-symbol">:</span> <a href="mysqlescaper.html" class="tsd-signature-type">MySQLEscaper</a></div>
+					<div class="tsd-signature tsd-kind-icon">escaper<span class="tsd-signature-symbol">:</span> <a href="escaper.html" class="tsd-signature-type">Escaper</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/update/mysql-update.ts#L25">query/update/mysql-update.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/count/count.ts#L28">query/count/count.ts:28</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>An <a href="escaper.html">Escaper</a> for MySQL.  Used when escaping column
-							names.</p>
+							<p>An <a href="escaper.html">Escaper</a> matching the database type (e.g.
+								<a href="mysqlescaper.html">MySQLEscaper</a> or <a href="mssqlescaper.html">MSSQLEscaper</a>).  Used when escaping column names in
+							compiled conditions.</p>
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 					<a name="executer" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> executer</h3>
-					<div class="tsd-signature tsd-kind-icon">executer<span class="tsd-signature-symbol">:</span> <a href="mysqlexecuter.html" class="tsd-signature-type">MySQLExecuter</a></div>
+					<div class="tsd-signature tsd-kind-icon">executer<span class="tsd-signature-symbol">:</span> <a href="../interfaces/executer.html" class="tsd-signature-type">Executer</a></div>
 					<aside class="tsd-sources">
-						<p>Overrides <a href="update.html">Update</a>.<a href="update.html#executer">executer</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/update/mysql-update.ts#L26">query/update/mysql-update.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/count/count.ts#L29">query/count/count.ts:29</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>An <a href="../interfaces/executer.html">Executer</a> instance for MySQL.</p>
+							<p>An <a href="../interfaces/executer.html">Executer</a> instance that matches the database type
+							(e.g. <a href="mysqlexecuter.html">MySQLExecuter</a>).</p>
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 					<a name="from" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> from</h3>
 					<div class="tsd-signature tsd-kind-icon">from<span class="tsd-signature-symbol">:</span> <a href="from.html" class="tsd-signature-type">From</a></div>
 					<aside class="tsd-sources">
-						<p>Overrides <a href="update.html">Update</a>.<a href="update.html#from">from</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/update/mysql-update.ts#L27">query/update/mysql-update.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/count/count.ts#L30">query/count/count.ts:30</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -232,74 +241,37 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
-					<a name="model" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> model</h3>
-					<div class="tsd-signature tsd-kind-icon">model<span class="tsd-signature-symbol">:</span> <a href="../globals.html#updatetype" class="tsd-signature-type">UpdateType</a></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="order" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> order</h3>
+					<div class="tsd-signature tsd-kind-icon">order<span class="tsd-signature-symbol">:</span> <a href="orderby.html" class="tsd-signature-type">OrderBy</a></div>
 					<aside class="tsd-sources">
-						<p>Overrides <a href="update.html">Update</a>.<a href="update.html#model">model</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/update/mysql-update.ts#L28">query/update/mysql-update.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/count/count.ts#L31">query/count/count.ts:31</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>An object containing key-value pairs.  Each key must
-								correspond to a fully-qualified property
-								(&lt;table-alias&gt;.&lt;property&gt;), and each associated value is the
-							value to update in the database.</p>
+							<p>An <a href="orderby.html">OrderBy</a> instance which is optionally used to order
+							the query results.</p>
 						</div>
 					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-					<a name="paramlist" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> param<wbr>List</h3>
-					<div class="tsd-signature tsd-kind-icon">param<wbr>List<span class="tsd-signature-symbol">:</span> <a href="parameterlist.html" class="tsd-signature-type">ParameterList</a></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="update.html">Update</a>.<a href="update.html#paramlist">paramList</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/update/update.ts#L14">query/update/update.ts:14</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-					<a name="paramlookup" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> param<wbr>Lookup</h3>
-					<div class="tsd-signature tsd-kind-icon">param<wbr>Lookup<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="update.html">Update</a>.<a href="update.html#paramlookup">paramLookup</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/update/update.ts#L17">query/update/update.ts:17</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-					<a name="updatecols" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> update<wbr>Cols</h3>
-					<div class="tsd-signature tsd-kind-icon">update<wbr>Cols<span class="tsd-signature-symbol">:</span> <a href="fromcolumnmeta.html" class="tsd-signature-type">FromColumnMeta</a><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="update.html">Update</a>.<a href="update.html#updatecols">updateCols</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/update/update.ts#L11">query/update/update.ts:11</a></li>
-						</ul>
-					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="buildquery" class="tsd-anchor"></a>
 					<h3>build<wbr>Query</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 						<li class="tsd-signature tsd-kind-icon">build<wbr>Query<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="executablequery.html" class="tsd-signature-type">ExecutableQuery</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="update.html">Update</a>.<a href="update.html#buildquery">buildQuery</a></p>
 								<p>Overrides <a href="query.html">Query</a>.<a href="query.html#buildquery">buildQuery</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/update/update.ts#L93">query/update/update.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/count/count.ts#L107">query/count/count.ts:107</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -313,30 +285,94 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-					<a name="execute" class="tsd-anchor"></a>
-					<h3>execute</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">execute<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#mutateresulttype" class="tsd-signature-type">MutateResultType</a><span class="tsd-signature-symbol">&gt;</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="count-1" class="tsd-anchor"></a>
+					<h3>count</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">count<span class="tsd-signature-symbol">(</span>col<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="update.html">Update</a>.<a href="update.html#execute">execute</a></p>
-								<p>Overrides <a href="query.html">Query</a>.<a href="query.html#execute">execute</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/update/update.ts#L106">query/update/update.ts:106</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/count/count.ts#L41">query/count/count.ts:41</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Execute the query.</p>
+									<p>Count the number of records, optionally on a column.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#mutateresulttype" class="tsd-signature-type">MutateResultType</a><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A promise that shall be resolved with an object containing an
-								&quot;affectedRows&quot; property.  If an error occurs when executing the query, the
-							returned promise shall be rejected with the error (unmodified).</p>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> col: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An optional column to count on.  If not provided, then
+										COUNT(*) is used.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="execute" class="tsd-anchor"></a>
+					<h3>execute</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">execute<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="query.html">Query</a>.<a href="query.html#execute">execute</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/count/count.ts#L120">query/count/count.ts:120</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Execute the query and return an array of results of type T.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A promise that shall be resolved with the normalized query results
+								of type T.  If an error occurs while executing the query, the returned
+							promise shall be rejected with the unmodified error.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="orderby" class="tsd-anchor"></a>
+					<h3>order<wbr>By</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">order<wbr>By<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>orders<span class="tsd-signature-symbol">: </span><a href="../globals.html#orderbytype" class="tsd-signature-type">OrderByType</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/count/count.ts#L64">query/count/count.ts:64</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Order by one or more columns.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>orders: <a href="../globals.html#orderbytype" class="tsd-signature-type">OrderByType</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A list of fully-qualified properties in the form
+											&lt;table-alias&gt;.&lt;property&gt;, or an array of <a href="../globals.html#orderbytype">OrderByType</a> with
+										the fully-qualified property and direction.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -351,16 +387,15 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="query.html">Query</a>.<a href="query.html#tostring">toString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/update/mysql-update.ts#L37">query/update/mysql-update.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/count/count.ts#L73">query/count/count.ts:73</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get the SQL that represents the query.</p>
+									<p>Get the SQL as a string.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>The SQL representing the update statement.</p>
 						</li>
 					</ul>
 				</section>
@@ -379,40 +414,40 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="mysqlupdate.html" class="tsd-kind-icon">MySQLUpdate</a>
+						<a href="count.html" class="tsd-kind-icon">Count</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="mysqlupdate.html#constructor" class="tsd-kind-icon">constructor</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="count.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="mysqlupdate.html#escaper" class="tsd-kind-icon">escaper</a>
+								<a href="count.html#countcol" class="tsd-kind-icon">count<wbr>Col</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
-								<a href="mysqlupdate.html#executer" class="tsd-kind-icon">executer</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="count.html#escaper" class="tsd-kind-icon">escaper</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
-								<a href="mysqlupdate.html#from" class="tsd-kind-icon">from</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="count.html#executer" class="tsd-kind-icon">executer</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
-								<a href="mysqlupdate.html#model" class="tsd-kind-icon">model</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="count.html#from" class="tsd-kind-icon">from</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-								<a href="mysqlupdate.html#paramlist" class="tsd-kind-icon">param<wbr>List</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-								<a href="mysqlupdate.html#paramlookup" class="tsd-kind-icon">param<wbr>Lookup</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-								<a href="mysqlupdate.html#updatecols" class="tsd-kind-icon">update<wbr>Cols</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-								<a href="mysqlupdate.html#buildquery" class="tsd-kind-icon">build<wbr>Query</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-								<a href="mysqlupdate.html#execute" class="tsd-kind-icon">execute</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="count.html#order" class="tsd-kind-icon">order</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="mysqlupdate.html#tostring" class="tsd-kind-icon">to<wbr>String</a>
+								<a href="count.html#buildquery" class="tsd-kind-icon">build<wbr>Query</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="count.html#count-1" class="tsd-kind-icon">count</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="count.html#execute" class="tsd-kind-icon">execute</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="count.html#orderby" class="tsd-kind-icon">order<wbr>By</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="count.html#tostring" class="tsd-kind-icon">to<wbr>String</a>
 							</li>
 						</ul>
 					</li>

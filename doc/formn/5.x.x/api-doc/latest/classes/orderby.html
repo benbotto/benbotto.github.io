@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ColumnStore | formn</title>
+	<title>OrderBy | formn</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -52,10 +52,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="columnstore.html">ColumnStore</a>
+					<a href="orderby.html">OrderBy</a>
 				</li>
 			</ul>
-			<h1>Class ColumnStore</h1>
+			<h1>Class OrderBy</h1>
 		</div>
 	</div>
 </header>
@@ -65,7 +65,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Storage for <a href="columnmetadata.html">ColumnMetadata</a> with lookup operations.</p>
+						<p>Used by Query classes that can be ordered, like <a href="select.html">Select</a> and <a href="count.html">Count</a>.</p>
 					</div>
 				</div>
 			</section>
@@ -73,7 +73,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ColumnStore</span>
+						<span class="target">OrderBy</span>
 					</li>
 				</ul>
 			</section>
@@ -82,164 +82,200 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="orderby.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-private-protected">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="orderby.html#escaper" class="tsd-kind-icon">escaper</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="orderby.html#from" class="tsd-kind-icon">from</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="orderby.html#order" class="tsd-kind-icon">order</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="columnstore.html#addcolumnmetadata" class="tsd-kind-icon">add<wbr>Column<wbr>Metadata</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="columnstore.html#getcolumnmetadata" class="tsd-kind-icon">get<wbr>Column<wbr>Metadata</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="columnstore.html#getcolumnmetadatabymapping" class="tsd-kind-icon">get<wbr>Column<wbr>Metadata<wbr>ByMapping</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="columnstore.html#getcolumnmetadatabyname" class="tsd-kind-icon">get<wbr>Column<wbr>Metadata<wbr>ByName</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="columnstore.html#getprimarykey" class="tsd-kind-icon">get<wbr>Primary<wbr>Key</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="orderby.html#getorderbystring" class="tsd-kind-icon">get<wbr>Order<wbr>ByString</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="orderby.html#isordered" class="tsd-kind-icon">is<wbr>Ordered</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="orderby.html#orderby-1" class="tsd-kind-icon">order<wbr>By</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="addcolumnmetadata" class="tsd-anchor"></a>
-					<h3>add<wbr>Column<wbr>Metadata</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">add<wbr>Column<wbr>Metadata<span class="tsd-signature-symbol">(</span>col<span class="tsd-signature-symbol">: </span><a href="columnmetadata.html" class="tsd-signature-type">ColumnMetadata</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Order<wbr>By<span class="tsd-signature-symbol">(</span>escaper<span class="tsd-signature-symbol">: </span><a href="escaper.html" class="tsd-signature-type">Escaper</a>, from<span class="tsd-signature-symbol">: </span><a href="from.html" class="tsd-signature-type">From</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="orderby.html" class="tsd-signature-type">OrderBy</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/metadata/column/column-store.ts#L13">metadata/column/column-store.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/order/order-by.ts#L10">query/order/order-by.ts:10</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Add a column&#39;s metadata.</p>
+									<p>Initialize with a From instance.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>col: <a href="columnmetadata.html" class="tsd-signature-type">ColumnMetadata</a></h5>
+									<h5>escaper: <a href="escaper.html" class="tsd-signature-type">Escaper</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>An <a href="escaper.html">Escaper</a> matching the database type (e.g.
+												<a href="mysqlescaper.html">MySQLEscaper</a> or <a href="mssqlescaper.html">MSSQLEscaper</a>).  Used when escaping column names in
+											compiled conditions.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>from: <a href="from.html" class="tsd-signature-type">From</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>A <a href="from.html">From</a> instance which holds the base table, all
+											joined-in tables, and the where clause.</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="orderby.html" class="tsd-signature-type">OrderBy</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="escaper" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> escaper</h3>
+					<div class="tsd-signature tsd-kind-icon">escaper<span class="tsd-signature-symbol">:</span> <a href="escaper.html" class="tsd-signature-type">Escaper</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/order/order-by.ts#L21">query/order/order-by.ts:21</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>An <a href="escaper.html">Escaper</a> matching the database type (e.g.
+								<a href="mysqlescaper.html">MySQLEscaper</a> or <a href="mssqlescaper.html">MSSQLEscaper</a>).  Used when escaping column names in
+							compiled conditions.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="from" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> from</h3>
+					<div class="tsd-signature tsd-kind-icon">from<span class="tsd-signature-symbol">:</span> <a href="from.html" class="tsd-signature-type">From</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/order/order-by.ts#L22">query/order/order-by.ts:22</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A <a href="from.html">From</a> instance which holds the base table, all
+							joined-in tables, and the where clause.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="order" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> order</h3>
+					<div class="tsd-signature tsd-kind-icon">order<span class="tsd-signature-symbol">:</span> <a href="../globals.html#orderbytype" class="tsd-signature-type">OrderByType</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/order/order-by.ts#L10">query/order/order-by.ts:10</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getorderbystring" class="tsd-anchor"></a>
+					<h3>get<wbr>Order<wbr>ByString</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Order<wbr>ByString<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/order/order-by.ts#L56">query/order/order-by.ts:56</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the ORDER BY portion of the query string, or an empty string if there
+									is no order.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="isordered" class="tsd-anchor"></a>
+					<h3>is<wbr>Ordered</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Ordered<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/order/order-by.ts#L79">query/order/order-by.ts:79</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns true if the query is ordered.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="orderby-1" class="tsd-anchor"></a>
+					<h3>order<wbr>By</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">order<wbr>By<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>orders<span class="tsd-signature-symbol">: </span><a href="../globals.html#orderbytype" class="tsd-signature-type">OrderByType</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/query/order/order-by.ts#L31">query/order/order-by.ts:31</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Order by one or more columns.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>orders: <a href="../globals.html#orderbytype" class="tsd-signature-type">OrderByType</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A list of fully-qualified properties in the form
+											&lt;table-alias&gt;.&lt;property&gt;, or an array of <a href="../globals.html#orderbytype">OrderByType</a> with
+										the fully-qualified property and direction.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getcolumnmetadata" class="tsd-anchor"></a>
-					<h3>get<wbr>Column<wbr>Metadata</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Column<wbr>Metadata<span class="tsd-signature-symbol">(</span>Entity<span class="tsd-signature-symbol">: </span><a href="../globals.html#tabletype" class="tsd-signature-type">TableType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="columnmetadata.html" class="tsd-signature-type">ColumnMetadata</a><span class="tsd-signature-symbol">[]</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/metadata/column/column-store.ts#L30">metadata/column/column-store.ts:30</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get all the <a href="columnmetadata.html">ColumnMetadata</a> for a <a href="../globals.html#table">Table</a>-decorated Entity.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>Entity: <a href="../globals.html#tabletype" class="tsd-signature-type">TableType</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="columnmetadata.html" class="tsd-signature-type">ColumnMetadata</a><span class="tsd-signature-symbol">[]</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getcolumnmetadatabymapping" class="tsd-anchor"></a>
-					<h3>get<wbr>Column<wbr>Metadata<wbr>ByMapping</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Column<wbr>Metadata<wbr>ByMapping<span class="tsd-signature-symbol">(</span>Entity<span class="tsd-signature-symbol">: </span><a href="../globals.html#tabletype" class="tsd-signature-type">TableType</a>, mapTo<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="columnmetadata.html" class="tsd-signature-type">ColumnMetadata</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/metadata/column/column-store.ts#L54">metadata/column/column-store.ts:54</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get the <a href="columnmetadata.html">ColumnMetadata</a> for a <a href="../globals.html#table">Table</a>-decorated Entity by column
-									mapping (property name in parent Entity).</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>Entity: <a href="../globals.html#tabletype" class="tsd-signature-type">TableType</a></h5>
-								</li>
-								<li>
-									<h5>mapTo: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="columnmetadata.html" class="tsd-signature-type">ColumnMetadata</a></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getcolumnmetadatabyname" class="tsd-anchor"></a>
-					<h3>get<wbr>Column<wbr>Metadata<wbr>ByName</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Column<wbr>Metadata<wbr>ByName<span class="tsd-signature-symbol">(</span>Entity<span class="tsd-signature-symbol">: </span><a href="../globals.html#tabletype" class="tsd-signature-type">TableType</a>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="columnmetadata.html" class="tsd-signature-type">ColumnMetadata</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/metadata/column/column-store.ts#L41">metadata/column/column-store.ts:41</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get the <a href="columnmetadata.html">ColumnMetadata</a> for a <a href="../globals.html#table">Table</a>-decorated Entity by column name.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>Entity: <a href="../globals.html#tabletype" class="tsd-signature-type">TableType</a></h5>
-								</li>
-								<li>
-									<h5>name: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="columnmetadata.html" class="tsd-signature-type">ColumnMetadata</a></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getprimarykey" class="tsd-anchor"></a>
-					<h3>get<wbr>Primary<wbr>Key</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Primary<wbr>Key<span class="tsd-signature-symbol">(</span>Entity<span class="tsd-signature-symbol">: </span><a href="../globals.html#tabletype" class="tsd-signature-type">TableType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="columnmetadata.html" class="tsd-signature-type">ColumnMetadata</a><span class="tsd-signature-symbol">[]</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/benbotto/formn/blob/5be0810/src/metadata/column/column-store.ts#L66">metadata/column/column-store.ts:66</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get the primary key for a table.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>Entity: <a href="../globals.html#tabletype" class="tsd-signature-type">TableType</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="columnmetadata.html" class="tsd-signature-type">ColumnMetadata</a><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -258,22 +294,28 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="columnstore.html" class="tsd-kind-icon">Column<wbr>Store</a>
+						<a href="orderby.html" class="tsd-kind-icon">Order<wbr>By</a>
 						<ul>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="columnstore.html#addcolumnmetadata" class="tsd-kind-icon">add<wbr>Column<wbr>Metadata</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="orderby.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="orderby.html#escaper" class="tsd-kind-icon">escaper</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="orderby.html#from" class="tsd-kind-icon">from</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="orderby.html#order" class="tsd-kind-icon">order</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="columnstore.html#getcolumnmetadata" class="tsd-kind-icon">get<wbr>Column<wbr>Metadata</a>
+								<a href="orderby.html#getorderbystring" class="tsd-kind-icon">get<wbr>Order<wbr>ByString</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="columnstore.html#getcolumnmetadatabymapping" class="tsd-kind-icon">get<wbr>Column<wbr>Metadata<wbr>ByMapping</a>
+								<a href="orderby.html#isordered" class="tsd-kind-icon">is<wbr>Ordered</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="columnstore.html#getcolumnmetadatabyname" class="tsd-kind-icon">get<wbr>Column<wbr>Metadata<wbr>ByName</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="columnstore.html#getprimarykey" class="tsd-kind-icon">get<wbr>Primary<wbr>Key</a>
+								<a href="orderby.html#orderby-1" class="tsd-kind-icon">order<wbr>By</a>
 							</li>
 						</ul>
 					</li>
